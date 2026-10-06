@@ -13,6 +13,10 @@ export function LoginForm({demo}:{demo?:{email:string;password:string}}) {
   async function submit(formData: FormData) {
     setPending(true); setError("");
     try {
+    if (demo) {
+      router.replace("/#demo");
+      return;
+    }
     const response = await fetch("/api/auth/login", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ email: formData.get("email"), password: formData.get("password") }) });
     const body = await response.json().catch(() => ({})) as { error?: string };
     setPending(false);
