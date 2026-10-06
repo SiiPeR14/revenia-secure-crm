@@ -4,7 +4,7 @@ import {PageFeedback} from '@/components/page-feedback';
 
 
 
-export default async function LoginPage({searchParams}:{searchParams:Promise<{cambiada?:string;demo?:string}>}) {
+export default async function LoginPage({searchParams}:{searchParams:Promise<{cambiada?:string;demo?:string;plan?:string}>}) {
 
   const local=process.env.NODE_ENV!=='production';
 
@@ -35,7 +35,7 @@ export default async function LoginPage({searchParams}:{searchParams:Promise<{ca
 
       </section>
 
-      <div><PageFeedback success={query.cambiada==='1'?'Contraseña cambiada. Todas las sesiones anteriores se han cerrado. Entra con tu nueva contraseña.':undefined}/><LoginForm demo={demoAccess?{email:'owner@revenia.local',password:'ReveniaDemo!2026'}:undefined} /></div>
+      <div><PageFeedback success={query.cambiada==='1'?'Contraseña cambiada. Todas las sesiones anteriores se han cerrado. Entra con tu nueva contraseña.':undefined}/><LoginForm demo={demoAccess?{email:'owner@revenia.local',password:'ReveniaDemo!2026',plan:query.plan}:undefined} /></div>
 
     </main>
 

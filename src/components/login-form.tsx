@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { recoveryAvailable } from "@/lib/auth/recovery-delivery";
 
-export function LoginForm({demo}:{demo?:{email:string;password:string}}) {
+export function LoginForm({demo}:{demo?:{email:string;password:string;plan?:string}}) {
   const router = useRouter();
   const [error, setError] = useState("");
   const [pending, setPending] = useState(false);
@@ -14,7 +14,7 @@ export function LoginForm({demo}:{demo?:{email:string;password:string}}) {
     setPending(true); setError("");
     try {
     if (demo) {
-      router.replace("/#demo");
+      router.replace(demo.plan ? `/?demoPlan=${encodeURIComponent(demo.plan)}#demo` : "/#demo");
       return;
     }
     const response = await fetch("/api/auth/login", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ email: formData.get("email"), password: formData.get("password") }) });

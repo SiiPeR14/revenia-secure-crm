@@ -1,7 +1,7 @@
 'use client';
 import {useState} from 'react';
 import Link from 'next/link';
-import {InvoiceShowcase,InvoiceServices} from './invoice-showcase';
+import {InvoiceShowcase,InvoiceServices} from './src/components/invoice-showcase';
 
 const plans=[
   {name:'Starter',price:29,max:5,messages:'1.000',tag:'La base para trabajar con orden.',description:'Para profesionales y equipos pequeños que quieren dejar atrás las hojas sueltas y saber qué toca hacer después.',ideal:'Empezar a centralizar clientes y oportunidades.',features:['Clientes, contactos y oportunidades','Presupuestos, tareas y próximos pasos','Historial comercial en un mismo espacio'],limits:['Hasta 5 usuarios','1.000 mensajes preparados al mes','Automatizaciones locales'],future:'Firma digital y nuevas integraciones'},
