@@ -1,0 +1,13 @@
+import Link from 'next/link';
+import {requireSession} from '@/lib/auth/current-session';
+import {withTenant} from '@/lib/db/tenant-transaction';
+import {saveContactPermission} from '@/app/engine-actions';
+import {SubmitButton} from '@/components/submit-button';
+import {PageFeedback} from '@/components/page-feedback';
+import {can} from '@/lib/security/rbac';
+
+export default async function ContactPermissions({searchParams}:{searchParams:Promise<Record<string,string|undefined>>}){
+  const [session,query]=await Promise.all([requireSession(),searchParams]);
+  const data=await withTenant(session.tenantId,async db=>({clients:(await db.query<{id:string;name:string}>('SELECT id,name FROM clients ORDER BY name')).rows,permissions:(await db.query<{name:string;channel:string;allowed:boolean;evidence:string}>(`SELECT c.name,p.channel,p.allowed,p.evidence FROM contact_permissions p JOIN clients c ON c.id=p.client_id ORDER BY p.updated_at DESC LIMIT 100`)).rows}));
+  return <main className="page-stack"><header className="page-heading"><div><p className="eyebrow">COMUNICACIONES</p><h1>Permisos de contacto</h1><p>Registra la autorización y su evidencia antes de enviar mensajes.</p></div><Link href="/inbox">Volver al Inbox</Link></header><PageFeedback error={query.error} success={query.guardado?'Permiso registrado y auditado.':undefined}/>{can(session.role,'crm:write')?<article className="panel settings-form"><form action={saveContactPermission} className="form-grid"><label>Cliente<select name="clientId" required>{data.clients.map(client=><option value={client.id} key={client.id}>{client.name}</option>)}</select></label><label>Canal<select name="channel"><option>Email</option><option>WhatsApp</option></select></label><label>Estado<select name="allowed" defaultValue="false"><option value="false">No autorizado / retirado</option><option value="true">Autorizado</option></select></label><label className="wide">Evidencia y alcance de la autorización<textarea name="evidence" required minLength={5} maxLength={500} placeholder="Fecha, origen y finalidad permitida. No incluyas datos innecesarios."/></label><div className="form-footer wide"><SubmitButton>Guardar permiso</SubmitButton></div></form></article>:null}<article className="panel"><h2>Autorizaciones registradas</h2>{data.permissions.map((p,i)=><p key={i}><strong>{p.name}</strong> · {p.channel} · {p.allowed?'Autorizado':'No autorizado'}<br/>{p.evidence}</p>)}<p className="helper-text">Las bajas y bloqueos del proveedor prevalecen sobre estas autorizaciones. Este registro no sustituye la revisión de la base legal de cada comunicación.</p></article></main>;
+}

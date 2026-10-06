@@ -1,0 +1,38 @@
+# Release template: needs managed PostgreSQL/Redis with TLS and a TLS reverse proxy.
+# Do not combine with the local demo compose file.
+name: revenia
+services:
+  web:
+    image: revenia:${REVENIA_RELEASE:?Set an immutable release label}
+    build: .
+    env_file: .env.production.local
+    ports: ["127.0.0.1:3000:3000"]
+    restart: unless-stopped
+    init: true
+    read_only: true
+    tmpfs: ["/tmp", "/app/.next/cache"]
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000/api/health',{signal:AbortSignal.timeout(4000)}).then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      start_period: 30s
+      retries: 3
+  worker:
+    image: revenia:${REVENIA_RELEASE:?Set an immutable release label}
+    env_file: .env.production.local
+    command: ["sh", "-c", "node --experimental-transform-types src/scripts/check-deployment.ts && exec node --experimental-transform-types src/scripts/worker.ts"]
+    restart: unless-stopped
+    init: true
+    read_only: true
+    tmpfs: ["/tmp"]
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    stop_grace_period: 60s
+    healthcheck:
+      test: ["CMD", "node", "--experimental-transform-types", "src/scripts/check-worker.ts"]
+      interval: 30s
+      timeout: 10s
+      start_period: 90s
+      retries: 3

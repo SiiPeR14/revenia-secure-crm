@@ -1,0 +1,511 @@
+Quiero desarrollar un SaaS profesional de recuperación de presupuestos y seguimiento automatizado de clientes para pequeñas y medianas empresas.
+
+El objetivo principal es ayudar a las empresas a recuperar presupuestos que han enviado pero que todavía no han sido aceptados, hacer seguimiento comercial de clientes potenciales y evitar que oportunidades de venta se pierdan por falta de seguimiento.
+
+Quiero que me ayudes a diseñar el proyecto desde cero, priorizando una arquitectura sencilla al principio pero preparada para escalar.
+
+## 1. Estructura general del SaaS
+
+El sistema debe ser multiempresa (multi-tenant).
+
+Cada empresa debe disponer de:
+
+- Su propia cuenta.
+- Sus propios usuarios y empleados.
+- Sus propios clientes.
+- Sus propios contactos.
+- Sus propios presupuestos.
+- Sus propias conversaciones.
+- Sus propias automatizaciones.
+- Sus propias métricas.
+- Sus propios ajustes.
+
+Roles iniciales:
+
+- Administrador.
+- Comercial.
+- Usuario / empleado.
+
+Preparar la arquitectura para añadir más permisos personalizados en el futuro.
+
+## 2. CRM
+
+Crear un CRM sencillo, visual y fácil de utilizar.
+
+Cada cliente debe tener una ficha con:
+
+- Nombre.
+- Empresa.
+- Teléfono.
+- WhatsApp.
+- Email.
+- Estado.
+- Responsable comercial.
+- Fecha de creación.
+- Última interacción.
+- Próximo seguimiento.
+- Notas.
+- Etiquetas.
+- Historial completo.
+
+Estados posibles:
+
+- Nuevo lead.
+- Contactado.
+- Presupuesto solicitado.
+- Presupuesto enviado.
+- Seguimiento.
+- Negociación.
+- Ganado.
+- Perdido.
+- Cliente existente.
+
+Quiero poder visualizar estos clientes mediante un pipeline Kanban tipo:
+
+Nuevo → Contactado → Presupuesto → Seguimiento → Negociación → Ganado / Perdido.
+
+## 3. Gestión de presupuestos
+
+Cada presupuesto debe estar asociado a un cliente.
+
+Información:
+
+- Número de presupuesto.
+- Cliente.
+- Importe.
+- Fecha de envío.
+- Fecha de vencimiento.
+- Productos o servicios.
+- Comercial responsable.
+- Estado.
+
+Estados:
+
+- Borrador.
+- Enviado.
+- Visualizado.
+- En seguimiento.
+- Aceptado.
+- Rechazado.
+- Caducado.
+
+También debe existir un historial de actividad.
+
+Ejemplo:
+
+Presupuesto enviado → cliente lo visualiza → pasan 2 días → sistema inicia seguimiento → cliente responde → comercial recibe aviso.
+
+## 4. Bot de recuperación de presupuestos
+
+Crear un sistema automatizado que detecte presupuestos sin respuesta.
+
+Ejemplo de automatización:
+
+Día 0:
+Se envía presupuesto.
+
+Día 2:
+Si no existe respuesta, enviar mensaje automático.
+
+Ejemplo:
+
+"Hola Carlos, ¿has podido revisar el presupuesto que te enviamos? Si tienes cualquier duda puedo ayudarte."
+
+Día 5:
+Segundo seguimiento.
+
+Día 10:
+Último seguimiento.
+
+Las automatizaciones deben detenerse automáticamente cuando:
+
+- El cliente responde.
+- El presupuesto se acepta.
+- El presupuesto se rechaza.
+- El comercial pausa manualmente el seguimiento.
+
+El sistema debe evitar mensajes repetitivos o agresivos.
+
+## 5. Bot de seguimiento de clientes
+
+Además de presupuestos, quiero automatizar seguimientos comerciales.
+
+Ejemplos:
+
+Lead pide información pero deja de responder.
+
+Cliente dice:
+
+"Háblame la semana que viene."
+
+El sistema debe crear automáticamente una tarea o seguimiento.
+
+También quiero detectar frases como:
+
+- Escríbeme mañana.
+- Llámame el viernes.
+- Hablamos el mes que viene.
+- Ahora no puedo.
+- Recuérdamelo más adelante.
+
+Y generar automáticamente un seguimiento.
+
+## 6. WhatsApp
+
+Preparar el sistema para integración con WhatsApp Business API.
+
+Quiero poder:
+
+- Recibir mensajes.
+- Enviar mensajes.
+- Asociar conversaciones con clientes del CRM.
+- Detectar respuestas.
+- Detener automatizaciones.
+- Crear seguimientos.
+- Guardar historial.
+
+Cada conversación debe aparecer dentro de la ficha del cliente.
+
+## 7. Email
+
+Preparar también integración con email.
+
+Funciones:
+
+- Enviar presupuestos.
+- Enviar seguimientos.
+- Detectar respuestas.
+- Registrar emails dentro del CRM.
+
+## 8. Automatizaciones
+
+Crear un constructor de automatizaciones sencillo.
+
+Estructura:
+
+TRIGGER → CONDICIÓN → ACCIÓN.
+
+Ejemplo:
+
+Trigger:
+Presupuesto enviado.
+
+Condición:
+No existe respuesta después de 48 horas.
+
+Acción:
+Enviar WhatsApp.
+
+Después:
+
+Esperar 3 días.
+
+Condición:
+Sigue sin respuesta.
+
+Acción:
+Enviar segundo mensaje.
+
+Otros triggers:
+
+- Nuevo lead.
+- Presupuesto enviado.
+- Presupuesto visualizado.
+- Cliente responde.
+- Cliente sin actividad.
+- Presupuesto aceptado.
+- Presupuesto rechazado.
+- Fecha determinada.
+
+Acciones:
+
+- Enviar WhatsApp.
+- Enviar email.
+- Crear tarea.
+- Notificar comercial.
+- Cambiar estado.
+- Añadir etiqueta.
+- Programar seguimiento.
+
+## 9. Inteligencia Artificial
+
+Añadir una capa de IA para analizar conversaciones.
+
+La IA debe poder identificar:
+
+- Intención de compra.
+- Objeciones.
+- Cliente interesado.
+- Cliente no interesado.
+- Solicitud de seguimiento.
+- Fecha mencionada.
+- Preguntas frecuentes.
+
+También debe poder sugerir respuestas al comercial.
+
+Ejemplo:
+
+Cliente:
+
+"Me parece algo caro, tengo que pensarlo."
+
+La IA podría detectar:
+
+Objeción: precio.
+
+Interés: medio.
+
+Acción recomendada:
+Seguimiento dentro de 3 días.
+
+Respuesta sugerida:
+"Entiendo perfectamente. Si quieres puedo explicarte qué incluye el presupuesto y revisar contigo las opciones."
+
+No enviar respuestas automáticamente al principio.
+
+Primero usar IA como asistente del comercial.
+
+## 10. Dashboard
+
+Crear un dashboard principal con métricas como:
+
+- Leads nuevos.
+- Presupuestos enviados.
+- Presupuestos pendientes.
+- Presupuestos recuperados.
+- Ventas cerradas.
+- Importe recuperado.
+- Tasa de conversión.
+- Tiempo medio de cierre.
+
+Ejemplo:
+
+Este mes:
+
+120 presupuestos enviados.
+42 aceptados.
+18 recuperados gracias al seguimiento.
+12.450 € recuperados.
+
+## 11. Actividad del comercial
+
+Cada comercial debe ver:
+
+Hoy:
+
+- Clientes que debe llamar.
+- Presupuestos que requieren seguimiento.
+- Respuestas nuevas.
+- Leads nuevos.
+- Tareas pendientes.
+
+Quiero una pantalla tipo:
+
+"Qué tienes que hacer hoy".
+
+## 12. Sistema SaaS
+
+Implementar:
+
+- Registro.
+- Login.
+- Empresas.
+- Usuarios.
+- Roles.
+- Suscripciones.
+- Límites por plan.
+- Facturación.
+
+Planes iniciales:
+
+Starter:
+- 1 usuario.
+- CRM.
+- Seguimiento básico.
+
+Pro:
+- Varios usuarios.
+- Automatizaciones.
+- WhatsApp.
+- IA.
+- Analytics.
+
+Business:
+- Usuarios ilimitados o límite alto.
+- Automatizaciones avanzadas.
+- Integraciones.
+- API.
+- Soporte prioritario.
+
+Preparar integración futura con Stripe.
+
+## 13. Arquitectura técnica
+
+Quiero que propongas una arquitectura moderna y mantenible.
+
+Preferencia inicial:
+
+Frontend:
+Next.js + TypeScript.
+
+Backend:
+Next.js Server Actions / API o backend independiente si resulta más recomendable.
+
+Base de datos:
+PostgreSQL.
+
+ORM:
+Prisma o equivalente.
+
+Autenticación:
+Auth.js, Clerk o Supabase Auth.
+
+Hosting:
+Vercel.
+
+Base de datos:
+Supabase, Neon o equivalente.
+
+Colas / procesos:
+Sistema preparado para ejecutar automatizaciones y mensajes programados.
+
+Explica qué tecnología utilizarías y por qué.
+
+## 14. Base de datos
+
+Diseñar las entidades principales:
+
+User
+Company
+Contact
+Lead
+Customer
+Quote
+Conversation
+Message
+Task
+Automation
+AutomationStep
+Interaction
+Deal
+Subscription
+
+Explicar relaciones entre tablas.
+
+Todas las tablas deben estar vinculadas correctamente a company_id para garantizar separación entre empresas.
+
+## 15. MVP
+
+No quiero desarrollar todo al mismo tiempo.
+
+Divide el producto en fases.
+
+FASE 1 – MVP
+
+CRM.
+Clientes.
+Presupuestos.
+Pipeline.
+Tareas.
+Seguimientos manuales.
+Dashboard básico.
+
+FASE 2
+
+Automatización de seguimientos.
+WhatsApp.
+Email.
+Detección de respuestas.
+
+FASE 3
+
+IA.
+Análisis de conversaciones.
+Respuestas sugeridas.
+Detección automática de intención.
+
+FASE 4
+
+Analytics avanzados.
+Integraciones.
+API.
+Marketplace.
+Automatizaciones avanzadas.
+
+## 16. UX/UI
+
+Quiero un diseño SaaS moderno, minimalista y premium.
+
+Inspiración:
+
+Linear.
+Stripe.
+HubSpot.
+Attio.
+Notion.
+
+Sidebar:
+
+Dashboard
+CRM
+Pipeline
+Presupuestos
+Conversaciones
+Tareas
+Automatizaciones
+Analytics
+
+Parte inferior:
+
+Integraciones
+Configuración
+
+Priorizar simplicidad y velocidad.
+
+No quiero interfaces sobrecargadas.
+
+## 17. Seguridad
+
+Tener en cuenta:
+
+- Separación de datos entre empresas.
+- Control de permisos.
+- Protección de API.
+- Logs.
+- Backups.
+- GDPR.
+- Consentimiento de comunicaciones.
+- Baja de mensajes.
+- Límites de automatización.
+- Protección contra spam.
+
+## 18. Resultado que quiero de ti
+
+Quiero que actúes como:
+
+- Product Manager.
+- Arquitecto SaaS.
+- Desarrollador senior.
+- Especialista en CRM.
+- Especialista en automatizaciones.
+
+Antes de escribir código, quiero que generes:
+
+1. Arquitectura completa del producto.
+2. Mapa de pantallas.
+3. Flujo principal del usuario.
+4. Arquitectura técnica.
+5. Modelo de base de datos.
+6. Prioridades del MVP.
+7. Roadmap de desarrollo.
+8. Sistema de automatizaciones.
+9. Integraciones necesarias.
+10. Riesgos técnicos.
+11. Mejoras que introducirías al concepto.
+12. Estructura de carpetas del proyecto.
+
+Después, desarrolla cada módulo progresivamente evitando construir funcionalidades innecesarias antes de validar el MVP.
+
+El principio principal del producto debe ser:
+
+"Ningún presupuesto ni oportunidad comercial debería perderse por falta de seguimiento."

@@ -1,0 +1,70 @@
+name: revenia-local
+
+services:
+  database:
+    image: postgres:17.11-alpine3.24
+    environment:
+      POSTGRES_DB: revenia
+      POSTGRES_USER: revenia_admin
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-revenia-local-admin-2026}
+    ports:
+      - "127.0.0.1:54329:5432"
+    volumes:
+      - revenia_postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U revenia_admin -d revenia"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+    security_opt:
+      - no-new-privileges:true
+    tmpfs:
+      - /tmp
+    restart: unless-stopped
+    networks: [backend]
+
+  redis:
+    image: redis:8.10.1-alpine3.23
+    command: ["redis-server", "--appendonly", "yes", "--requirepass", "${REDIS_PASSWORD:-revenia-local-redis-2026}"]
+    environment:
+      REDIS_PASSWORD: ${REDIS_PASSWORD:-revenia-local-redis-2026}
+    ports:
+      - "127.0.0.1:6380:6379"
+    volumes:
+      - revenia_redis:/data
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli -a $$REDIS_PASSWORD ping | grep PONG"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+    networks: [backend]
+
+  mailpit:
+    image: axllent/mailpit:v1.30.0
+    environment:
+      MP_MAX_MESSAGES: 500
+      MP_DATABASE: /data/mailpit.db
+      MP_BLOCK_REMOTE_CSS_AND_FONTS: 1
+      MP_DISABLE_VERSION_CHECK: 1
+      MP_ENABLE_SPAMASSASSIN: 0
+    ports:
+      - "127.0.0.1:1025:1025"
+      - "127.0.0.1:8025:8025"
+    volumes:
+      - revenia_mailpit:/data
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+    networks: [backend]
+
+volumes:
+  revenia_postgres:
+  revenia_redis:
+  revenia_mailpit:
+
+networks:
+  backend:
+    driver: bridge

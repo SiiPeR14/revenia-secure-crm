@@ -1,0 +1,1490 @@
+# SaaS de recuperación de presupuestos y seguimiento comercial
+
+## Visión del producto
+
+Crear una plataforma SaaS que ayude a empresas, autónomos y equipos comerciales a evitar pérdidas de ventas por falta de seguimiento.
+
+La plataforma debe centralizar:
+
+- Clientes
+- Leads
+- Presupuestos
+- Conversaciones
+- Tareas
+- Automatizaciones
+- Seguimientos
+- Analítica comercial
+- Inteligencia artificial
+
+Principio del producto:
+
+**“Ningún presupuesto ni oportunidad comercial debería perderse por falta de seguimiento.”**
+
+---
+
+# 1. Problema que resuelve
+
+Muchas empresas:
+
+- Envían presupuestos y no hacen seguimiento.
+- Pierden clientes por responder tarde.
+- No recuerdan cuándo contactar de nuevo.
+- Tienen conversaciones repartidas entre WhatsApp, email y llamadas.
+- No saben qué oportunidades tienen más posibilidades de cerrar.
+- No saben cuánto dinero están perdiendo por falta de seguimiento.
+
+El SaaS debe convertir este problema en un proceso automático y medible.
+
+---
+
+# 2. Tipos de usuarios
+
+El sistema será multiempresa.
+
+Cada empresa tendrá su propio espacio independiente.
+
+Roles principales:
+
+### Administrador
+
+Puede gestionar:
+
+- Empresa
+- Facturación
+- Usuarios
+- Integraciones
+- Automatizaciones
+- Configuración
+- Métricas
+
+### Responsable comercial
+
+Puede:
+
+- Ver todo el pipeline
+- Asignar clientes
+- Revisar rendimiento
+- Gestionar presupuestos
+- Configurar seguimientos
+
+### Comercial
+
+Puede:
+
+- Gestionar clientes
+- Crear presupuestos
+- Responder conversaciones
+- Completar tareas
+- Hacer seguimientos
+
+---
+
+# 3. Dashboard principal
+
+El usuario debe entender el estado del negocio en pocos segundos.
+
+Mostrar:
+
+### Resumen
+
+- Leads nuevos
+- Clientes activos
+- Presupuestos enviados
+- Presupuestos pendientes
+- Presupuestos aceptados
+- Presupuestos rechazados
+- Ventas cerradas
+- Importe recuperado
+
+### Seguimiento
+
+- Clientes pendientes de contactar
+- Presupuestos sin respuesta
+- Tareas vencidas
+- Seguimientos de hoy
+- Conversaciones sin responder
+
+### Métricas
+
+- Tasa de conversión
+- Valor medio por presupuesto
+- Tiempo medio de cierre
+- Tasa de recuperación
+- Rendimiento por comercial
+
+---
+
+# 4. CRM
+
+Cada cliente tendrá una ficha completa.
+
+Información:
+
+- Nombre
+- Empresa
+- Teléfono
+- WhatsApp
+- Email
+- Comercial asignado
+- Estado
+- Valor potencial
+- Origen del lead
+- Fecha de creación
+- Último contacto
+- Próximo seguimiento
+- Etiquetas
+- Notas
+
+Dentro de la ficha:
+
+- Conversaciones
+- Presupuestos
+- Tareas
+- Archivos
+- Notas
+- Historial
+- Actividad
+- Automatizaciones activas
+
+---
+
+# 5. Pipeline comercial
+
+Vista Kanban.
+
+Estados:
+
+Nuevo lead
+
+↓
+
+Contactado
+
+↓
+
+Interesado
+
+↓
+
+Presupuesto solicitado
+
+↓
+
+Presupuesto enviado
+
+↓
+
+Seguimiento
+
+↓
+
+Negociación
+
+↓
+
+Ganado / Perdido
+
+Cada tarjeta mostrará:
+
+- Cliente
+- Importe potencial
+- Comercial
+- Última interacción
+- Próximo seguimiento
+- Estado del presupuesto
+
+Las oportunidades podrán moverse mediante drag & drop.
+
+---
+
+# 6. Sistema de presupuestos
+
+Cada presupuesto tendrá:
+
+- Cliente
+- Número
+- Fecha
+- Importe
+- Productos
+- Servicios
+- Descuentos
+- Impuestos
+- Validez
+- Comercial
+- Estado
+- Documentos adjuntos
+
+Estados:
+
+Borrador
+
+↓
+
+Enviado
+
+↓
+
+Visualizado
+
+↓
+
+Seguimiento
+
+↓
+
+Aceptado / Rechazado / Caducado
+
+---
+
+# 7. Función clave: recuperación de presupuestos
+
+Esta será una de las funcionalidades principales del producto.
+
+Ejemplo:
+
+### Día 0
+
+Presupuesto enviado.
+
+### Día 2
+
+Si no existe respuesta:
+
+Enviar WhatsApp.
+
+### Día 5
+
+Si sigue sin respuesta:
+
+Segundo seguimiento.
+
+### Día 10
+
+Último mensaje.
+
+### Día 15
+
+Crear tarea para el comercial.
+
+La automatización debe detenerse si:
+
+- Cliente responde
+- Cliente acepta
+- Cliente rechaza
+- Comercial pausa seguimiento
+- Presupuesto caduca
+
+---
+
+# 8. Automatizaciones
+
+Crear un sistema visual basado en:
+
+TRIGGER
+
+↓
+
+CONDICIÓN
+
+↓
+
+ACCIÓN
+
+Ejemplo:
+
+Presupuesto enviado
+
+↓
+
+Esperar 48 horas
+
+↓
+
+¿Cliente ha respondido?
+
+NO
+
+↓
+
+Enviar WhatsApp
+
+↓
+
+Esperar 3 días
+
+↓
+
+Crear tarea comercial
+
+---
+
+# 9. WhatsApp
+
+Integración con WhatsApp Business.
+
+Funciones:
+
+- Enviar mensajes
+- Recibir mensajes
+- Asociar conversaciones al CRM
+- Detectar respuestas
+- Automatizar seguimientos
+- Crear tareas
+- Detener automatizaciones
+- Guardar historial
+
+El usuario podrá responder directamente desde el SaaS.
+
+---
+
+# 10. Email
+
+Funciones:
+
+- Enviar presupuestos
+- Seguimientos automáticos
+- Recibir respuestas
+- Plantillas
+- Seguimiento de aperturas
+- Historial dentro del CRM
+
+---
+
+# 11. Inteligencia artificial
+
+La IA funcionará como asistente comercial.
+
+Debe analizar conversaciones y detectar:
+
+### Interés
+
+Bajo
+
+Medio
+
+Alto
+
+### Objeciones
+
+Ejemplos:
+
+- Precio
+- Tiempo
+- Competencia
+- Falta de confianza
+- Falta de presupuesto
+
+### Intención
+
+Ejemplos:
+
+- Quiere comprar
+- Quiere pensarlo
+- Quiere seguimiento
+- No está interesado
+
+### Seguimiento
+
+Detectar frases como:
+
+“Llámame mañana.”
+
+“Háblame la semana que viene.”
+
+“Ahora no puedo.”
+
+“Después de vacaciones.”
+
+Y crear automáticamente el seguimiento.
+
+---
+
+# 12. IA para respuestas sugeridas
+
+Ejemplo:
+
+Cliente:
+
+“Me parece un poco caro.”
+
+El sistema detecta:
+
+Objeción: precio
+
+Interés: medio
+
+Recomendación:
+
+No ofrecer descuento inmediatamente.
+
+Respuesta sugerida:
+
+“Entiendo. Si quieres puedo explicarte qué incluye el presupuesto y revisar qué opción se adapta mejor a lo que necesitas.”
+
+El comercial decide si enviarla.
+
+---
+
+# 13. Lead Scoring
+
+Añadir puntuación automática de oportunidades.
+
+Por ejemplo:
+
+0-100 puntos.
+
+Factores:
+
+- Ha respondido recientemente
+- Ha abierto presupuesto
+- Ha preguntado por precio
+- Ha solicitado llamada
+- Ha visitado presupuesto varias veces
+- Ha mostrado intención de compra
+
+Ejemplo:
+
+Carlos López
+
+Lead Score:
+
+87/100
+
+Estado:
+
+Alta probabilidad de cierre.
+
+---
+
+# 14. Recuperación de clientes antiguos
+
+Servicio adicional muy potente.
+
+Detectar clientes que llevan meses sin actividad.
+
+Ejemplo:
+
+Cliente compró hace 8 meses.
+
+Sistema:
+
+“Cliente inactivo.”
+
+Crear campaña:
+
+“Hola Carlos, hace tiempo que no hablamos…”
+
+Esto permite generar ventas nuevas desde la propia base de datos.
+
+---
+
+# 15. Clientes que dejan de responder
+
+Detectar automáticamente:
+
+Cliente interesado
+
+↓
+
+Conversación activa
+
+↓
+
+7 días sin respuesta
+
+↓
+
+Crear seguimiento
+
+↓
+
+Mensaje automático
+
+Esto puede utilizarse incluso sin presupuesto.
+
+---
+
+# 16. Seguimiento de llamadas
+
+Registrar llamadas dentro del CRM.
+
+Información:
+
+- Fecha
+- Duración
+- Resultado
+- Notas
+- Próxima acción
+
+Estados:
+
+No contesta
+
+Interesado
+
+Volver a llamar
+
+No interesado
+
+Venta cerrada
+
+---
+
+# 17. Recordatorios inteligentes
+
+El sistema debe avisar:
+
+“Hace 5 días que este cliente no responde.”
+
+“Este presupuesto vence mañana.”
+
+“Este cliente pidió que lo llamaras hoy.”
+
+“Esta oportunidad tiene alta probabilidad de cierre.”
+
+---
+
+# 18. Agenda comercial
+
+Pantalla:
+
+## Hoy
+
+Mostrar:
+
+- Llamadas pendientes
+- Seguimientos
+- Presupuestos
+- Tareas
+- Reuniones
+- Respuestas pendientes
+
+Objetivo:
+
+Que el comercial pueda empezar su jornada sabiendo exactamente qué debe hacer.
+
+---
+
+# 19. Agenda y reuniones
+
+Integración futura con:
+
+Google Calendar
+
+Microsoft Outlook
+
+Funciones:
+
+- Crear reuniones
+- Enviar invitaciones
+- Recordatorios
+- Asociar reuniones al CRM
+
+---
+
+# 20. Firma de presupuestos
+
+Servicio adicional.
+
+Permitir:
+
+- Aceptar presupuesto
+- Firmar digitalmente
+- Registrar fecha
+- Registrar IP
+- Guardar documento
+
+Estado automático:
+
+Presupuesto aceptado.
+
+---
+
+# 21. Pago desde el presupuesto
+
+Permitir añadir:
+
+“Pagar ahora.”
+
+Integración:
+
+Stripe
+
+El cliente podrá:
+
+Aceptar presupuesto
+
+↓
+
+Firmar
+
+↓
+
+Pagar
+
+↓
+
+Convertirse automáticamente en cliente.
+
+---
+
+# 22. Catálogo de productos y servicios
+
+Cada empresa podrá crear su catálogo.
+
+Ejemplo:
+
+Servicio A
+
+Precio
+
+IVA
+
+Descripción
+
+Categoría
+
+Así podrá crear presupuestos rápidamente.
+
+---
+
+# 23. Plantillas
+
+Crear plantillas para:
+
+- Presupuestos
+- WhatsApp
+- Emails
+- Seguimientos
+- Recordatorios
+
+Ejemplo:
+
+Plantilla:
+
+Seguimiento presupuesto 48h.
+
+---
+
+# 24. Archivos y documentos
+
+Dentro de cada cliente:
+
+- Presupuestos
+- Facturas
+- Contratos
+- Fotografías
+- Documentos
+
+---
+
+# 25. Notificaciones
+
+Centro de notificaciones.
+
+Ejemplos:
+
+Cliente respondió.
+
+Presupuesto aceptado.
+
+Presupuesto rechazado.
+
+Seguimiento vencido.
+
+Nuevo lead.
+
+Pago recibido.
+
+---
+
+# 26. Captación automática de leads
+
+Preparar integraciones con:
+
+- Formularios web
+- Landing pages
+- WhatsApp
+- Instagram
+- Facebook
+- Webhooks
+- API
+
+Cuando entra un lead:
+
+Crear contacto
+
+↓
+
+Asignar comercial
+
+↓
+
+Crear tarea
+
+↓
+
+Enviar mensaje automático
+
+---
+
+# 27. Formularios
+
+Cada empresa podrá crear formularios.
+
+Ejemplo:
+
+Solicitar presupuesto.
+
+Campos:
+
+Nombre
+
+Teléfono
+
+Email
+
+Servicio
+
+Mensaje
+
+Cuando se envía:
+
+Se crea automáticamente un lead.
+
+---
+
+# 28. Sistema de origen de clientes
+
+Registrar de dónde viene cada cliente.
+
+Ejemplos:
+
+Google
+
+Instagram
+
+Facebook
+
+WhatsApp
+
+Web
+
+Referido
+
+Comercial
+
+Esto permite saber qué canal genera más ventas.
+
+---
+
+# 29. Analytics
+
+Dashboard avanzado.
+
+Mostrar:
+
+### Ventas
+
+Ingresos
+
+Conversión
+
+Ventas por comercial
+
+Ventas por mes
+
+### Presupuestos
+
+Enviados
+
+Aceptados
+
+Rechazados
+
+Pendientes
+
+Recuperados
+
+### Seguimientos
+
+Seguimientos enviados
+
+Respuestas
+
+Ventas generadas
+
+### Marketing
+
+Origen de leads
+
+Conversión por canal
+
+---
+
+# 30. Métrica diferencial
+
+Crear una métrica propia del SaaS:
+
+## Dinero Recuperado
+
+Ejemplo:
+
+“Este mes el sistema ha recuperado 12.850 € en presupuestos.”
+
+Esto puede convertirse en uno de los principales argumentos comerciales del SaaS.
+
+---
+
+# 31. Ranking comercial
+
+Para equipos.
+
+Mostrar:
+
+- Ventas cerradas
+- Presupuestos enviados
+- Conversión
+- Seguimientos
+- Tiempo de respuesta
+
+Evitar convertirlo en algo agresivo.
+
+Debe servir para mejorar rendimiento.
+
+---
+
+# 32. Sistema de tareas
+
+Tipos:
+
+- Llamar
+- Enviar WhatsApp
+- Enviar email
+- Revisar presupuesto
+- Preparar propuesta
+- Reunión
+
+Estados:
+
+Pendiente
+
+En progreso
+
+Completada
+
+Vencida
+
+---
+
+# 33. Inbox unificado
+
+Una sola bandeja.
+
+Mostrar conversaciones de:
+
+WhatsApp
+
+Email
+
+Web
+
+Instagram en el futuro.
+
+Cada conversación estará asociada a un cliente.
+
+---
+
+# 34. Servicio adicional: llamadas perdidas
+
+Función futura interesante.
+
+Si un negocio recibe una llamada y no responde:
+
+Crear lead.
+
+Enviar automáticamente:
+
+“Hola, hemos visto tu llamada. ¿En qué podemos ayudarte?”
+
+Muy útil para:
+
+- Talleres
+- Clínicas
+- Reformas
+- Inmobiliarias
+- Servicios técnicos
+- Empresas de instalaciones
+
+---
+
+# 35. Servicio adicional: petición de reseñas
+
+Después de cerrar una venta:
+
+Esperar X días.
+
+↓
+
+Enviar mensaje.
+
+“¿Podrías dejarnos una reseña?”
+
+Integración futura:
+
+Google Reviews.
+
+---
+
+# 36. Servicio adicional: campañas de reactivación
+
+Ejemplo:
+
+Clientes que no compran desde hace 6 meses.
+
+↓
+
+Crear segmento.
+
+↓
+
+Campaña personalizada.
+
+Esto permite generar ingresos adicionales.
+
+---
+
+# 37. Segmentación de clientes
+
+Filtros:
+
+- Clientes activos
+- Clientes inactivos
+- Leads calientes
+- Presupuestos pendientes
+- Presupuestos > 5.000 €
+- Sin contacto en 30 días
+- Clientes recurrentes
+
+---
+
+# 38. Buscador global
+
+Buscar:
+
+Cliente
+
+Empresa
+
+Teléfono
+
+Presupuesto
+
+Conversación
+
+Email
+
+---
+
+# 39. SaaS multiempresa
+
+Cada empresa tendrá:
+
+- Workspace independiente
+- Usuarios
+- Permisos
+- CRM
+- Automatizaciones
+- Integraciones
+- Facturación
+- Datos aislados
+
+---
+
+# 40. Planes
+
+## Starter
+
+Para autónomos.
+
+CRM
+
+Clientes
+
+Presupuestos
+
+Tareas
+
+Seguimientos básicos
+
+## Pro
+
+Para pequeñas empresas.
+
+Todo lo anterior
+
+WhatsApp
+
+Automatizaciones
+
+IA
+
+Analytics
+
+## Business
+
+Para equipos.
+
+Todo lo anterior
+
+Usuarios avanzados
+
+Permisos
+
+API
+
+Integraciones
+
+Analytics avanzados
+
+Soporte prioritario
+
+---
+
+# 41. Arquitectura técnica
+
+Frontend:
+
+Next.js
+
+TypeScript
+
+Tailwind CSS
+
+Backend:
+
+Next.js API / Server Actions
+
+Base de datos:
+
+PostgreSQL
+
+ORM:
+
+Prisma
+
+Hosting:
+
+Vercel
+
+Base de datos:
+
+Supabase o Neon
+
+Autenticación:
+
+Clerk / Auth.js / Supabase Auth
+
+Pagos:
+
+Stripe
+
+Mensajería:
+
+WhatsApp Business API
+
+Email:
+
+Resend / SendGrid
+
+IA:
+
+API de modelos de lenguaje
+
+Automatizaciones:
+
+Sistema de jobs / colas.
+
+---
+
+# 42. Base de datos principal
+
+Entidades:
+
+Company
+
+User
+
+Role
+
+Contact
+
+Lead
+
+Customer
+
+Deal
+
+Quote
+
+QuoteItem
+
+Conversation
+
+Message
+
+Task
+
+Automation
+
+AutomationStep
+
+Interaction
+
+Notification
+
+File
+
+Product
+
+Subscription
+
+Payment
+
+Tag
+
+Integration
+
+Todas las entidades importantes deberán contener:
+
+company_id
+
+Esto garantiza separación entre empresas.
+
+---
+
+# 43. Menú principal
+
+Dashboard
+
+CRM
+
+Pipeline
+
+Presupuestos
+
+Conversaciones
+
+Tareas
+
+Automatizaciones
+
+Analytics
+
+Productos
+
+Integraciones
+
+Configuración
+
+---
+
+# 44. Diseño
+
+Estilo:
+
+Premium
+
+Minimalista
+
+Profesional
+
+Rápido
+
+Muy visual
+
+Inspiración:
+
+Linear
+
+Stripe
+
+Attio
+
+HubSpot
+
+Notion
+
+No sobrecargar pantallas.
+
+Priorizar:
+
+Espacios amplios
+
+Tarjetas limpias
+
+Tipografía clara
+
+Pocos colores
+
+Métricas visuales
+
+---
+
+# 45. MVP recomendado
+
+No construir todo desde el principio.
+
+## FASE 1 — Base
+
+Crear:
+
+Login
+
+Empresas
+
+Usuarios
+
+CRM
+
+Clientes
+
+Pipeline
+
+Presupuestos
+
+Tareas
+
+Dashboard
+
+Objetivo:
+
+Tener un producto funcional.
+
+---
+
+# 46. FASE 2 — Seguimiento
+
+Añadir:
+
+WhatsApp
+
+Email
+
+Seguimientos
+
+Automatizaciones
+
+Notificaciones
+
+Objetivo:
+
+Empezar a recuperar presupuestos.
+
+---
+
+# 47. FASE 3 — Inteligencia artificial
+
+Añadir:
+
+Análisis de conversaciones
+
+Lead scoring
+
+Detección de intención
+
+Detección de fechas
+
+Respuestas sugeridas
+
+Prioridad comercial
+
+---
+
+# 48. FASE 4 — Conversión
+
+Añadir:
+
+Firma
+
+Pagos
+
+Stripe
+
+Catálogo
+
+Plantillas
+
+Formularios
+
+---
+
+# 49. FASE 5 — Crecimiento
+
+Añadir:
+
+Campañas
+
+Clientes antiguos
+
+Reseñas
+
+Llamadas perdidas
+
+Integraciones
+
+API
+
+Analytics avanzados
+
+---
+
+# 50. Flujo ideal del usuario
+
+Empresa recibe nuevo lead.
+
+↓
+
+Lead entra automáticamente al CRM.
+
+↓
+
+Sistema asigna comercial.
+
+↓
+
+Comercial contacta.
+
+↓
+
+Cliente solicita presupuesto.
+
+↓
+
+Presupuesto enviado.
+
+↓
+
+Sistema empieza seguimiento.
+
+↓
+
+Cliente no responde.
+
+↓
+
+WhatsApp automático.
+
+↓
+
+Cliente responde.
+
+↓
+
+IA analiza conversación.
+
+↓
+
+Comercial recibe recomendación.
+
+↓
+
+Cliente acepta presupuesto.
+
+↓
+
+Firma.
+
+↓
+
+Pago.
+
+↓
+
+Oportunidad ganada.
+
+↓
+
+Sistema solicita reseña.
+
+↓
+
+Cliente queda guardado para futuras campañas.
+
+---
+
+# 51. Prioridad absoluta del producto
+
+El SaaS no debe convertirse en un CRM gigantesco.
+
+Su ventaja competitiva debe ser:
+
+**Seguimiento automático + recuperación de oportunidades + visibilidad del dinero recuperado.**
+
+La pregunta principal del usuario cuando entra al SaaS debería ser:
+
+**“¿Qué ventas estoy a punto de perder y qué tengo que hacer hoy?”**
+
+---
+
+# 52. Orden recomendado de desarrollo
+
+PASO 1
+
+Definir diseño y navegación.
+
+PASO 2
+
+Crear sistema multiempresa.
+
+PASO 3
+
+Crear CRM.
+
+PASO 4
+
+Crear pipeline.
+
+PASO 5
+
+Crear presupuestos.
+
+PASO 6
+
+Crear tareas.
+
+PASO 7
+
+Crear dashboard.
+
+PASO 8
+
+Crear automatizaciones.
+
+PASO 9
+
+Integrar WhatsApp.
+
+PASO 10
+
+Integrar email.
+
+PASO 11
+
+Añadir IA.
+
+PASO 12
+
+Añadir firma y pagos.
+
+PASO 13
+
+Crear analytics.
+
+PASO 14
+
+Añadir integraciones avanzadas.
+
+PASO 15
+
+Preparar comercialización del SaaS.

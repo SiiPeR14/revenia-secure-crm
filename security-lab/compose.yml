@@ -1,0 +1,21 @@
+name: revenia-security-lab
+services:
+  lab:
+    profiles: [lab]
+    build: .
+    environment:
+      LAB_ENABLED: 'true'
+      LAB_CONTAINER: 'true'
+      NODE_ENV: development
+    ports:
+      - '127.0.0.1:4310:4310'
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: ['no-new-privileges:true']
+    mem_limit: 128m
+    cpus: 0.5
+    pids_limit: 64
+    networks: [isolated]
+networks:
+  isolated:
+    internal: true

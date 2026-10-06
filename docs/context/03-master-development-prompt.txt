@@ -1,0 +1,4167 @@
+# REVENIA — MASTER DEVELOPMENT PROMPT
+
+Quiero que actúes simultáneamente como:
+
+- Software Architect Senior
+- Lead Full-Stack Developer
+- Backend Engineer
+- Frontend Engineer
+- Database Architect
+- DevOps Engineer
+- QA Engineer
+- Cybersecurity Engineer
+- SaaS Product Architect
+- AI Engineer
+- Automation Engineer
+- UX/UI Engineer
+
+Vas a trabajar sobre **Revenia**, una plataforma SaaS empresarial de CRM, automatización comercial, recuperación de oportunidades, presupuestos, facturación, inteligencia artificial y gestión de clientes.
+
+Este NO es un prototipo pequeño.
+
+Quiero construir un producto grande, profesional, escalable y comercializable, aunque el desarrollo completo tarde meses.
+
+La prioridad absoluta es:
+
+**hacerlo correctamente, de forma modular, segura y mantenible.**
+
+No quiero velocidad a costa de arquitectura.
+
+---
+
+# 0. REGLA PRINCIPAL DEL PROYECTO
+
+Revenia debe responder a una pregunta:
+
+## ¿Qué dinero está perdiendo una empresa por falta de seguimiento y qué puede hacer ahora para recuperarlo?
+
+El CRM es la infraestructura.
+
+El verdadero producto es:
+
+## REVENUE RECOVERY
+
+Revenia debe detectar oportunidades comerciales en riesgo, recomendar acciones y automatizar seguimientos.
+
+Principio:
+
+**“Ningún presupuesto ni oportunidad comercial debería perderse por falta de seguimiento.”**
+
+Posicionamiento:
+
+**Revenia — Revenue Recovery CRM**
+
+---
+
+# 1. REGLA DE DESARROLLO MÁS IMPORTANTE
+
+NO desplegar nada inicialmente en Internet.
+
+Todo el proyecto debe construirse y probarse primero:
+
+# 100 % LOCAL
+
+No utilizar inicialmente:
+
+- Vercel
+- AWS
+- Railway
+- Render
+- Supabase Cloud
+- Neon Cloud
+- Cloudflare
+- Stripe real
+- WhatsApp real
+- servicios de email reales
+
+Crear equivalentes locales o mock siempre que sea posible.
+
+La meta inicial es disponer de una:
+
+## MINI INFRAESTRUCTURA DE PRODUCCIÓN LOCAL
+
+que simule el comportamiento real del SaaS.
+
+---
+
+# 2. FILOSOFÍA DE IMPLEMENTACIÓN
+
+Antes de escribir código:
+
+1. Analiza completamente el repositorio.
+2. Detecta el stack existente.
+3. Detecta arquitectura.
+4. Detecta componentes.
+5. Detecta modelos.
+6. Detecta endpoints.
+7. Detecta funcionalidades existentes.
+8. Detecta duplicaciones.
+9. Detecta código muerto.
+10. Detecta problemas de seguridad.
+11. Detecta errores.
+12. Detecta deuda técnica.
+13. Detecta funcionalidades incompletas.
+
+NO sustituyas tecnologías existentes solamente porque prefieras otras.
+
+Mantén compatibilidad siempre que tenga sentido.
+
+Después genera un informe:
+
+### CRÍTICO
+
+Errores que pueden romper:
+
+- seguridad
+- aislamiento multiempresa
+- datos
+- autenticación
+- arquitectura
+- producción
+
+### IMPORTANTE
+
+Problemas que deben corregirse antes de crecer.
+
+### MEJORA
+
+Refactors, UX, rendimiento y optimizaciones.
+
+Trabaja siempre en ese orden.
+
+---
+
+# 3. ESTADOS DE TRABAJO
+
+Nunca digas que algo funciona si no se ha comprobado.
+
+Cada módulo deberá tener estado:
+
+### IMPLEMENTADO
+
+El código existe.
+
+### PROBADO
+
+El comportamiento ha sido verificado mediante tests o ejecución real.
+
+### NO PROBADO
+
+Existe pero aún no se ha verificado.
+
+### FALLIDO
+
+Existe un problema conocido.
+
+Nunca escribir:
+
+PASS
+
+sin haber ejecutado realmente la prueba correspondiente.
+
+---
+
+# 4. ARQUITECTURA GENERAL DE REVENIA
+
+La plataforma estará dividida conceptualmente en:
+
+## CRM CORE
+
+Clientes.
+
+Empresas.
+
+Contactos.
+
+Leads.
+
+Oportunidades.
+
+Pipeline.
+
+Actividades.
+
+Notas.
+
+Tareas.
+
+Calendario.
+
+---
+
+## REVENUE RECOVERY
+
+Revenue Recovery Center.
+
+Presupuestos abandonados.
+
+Oportunidades en riesgo.
+
+Clientes sin respuesta.
+
+Clientes inactivos.
+
+Reactivaciones.
+
+Recovery Score.
+
+Recovery Revenue.
+
+Revenue at Risk.
+
+Win/Loss Intelligence.
+
+---
+
+## COMMUNICATIONS
+
+WhatsApp.
+
+Email.
+
+Chat.
+
+Telefonía futura.
+
+Inbox unificado.
+
+Plantillas.
+
+Conversaciones.
+
+---
+
+## SALES
+
+Presupuestos.
+
+Productos.
+
+Servicios.
+
+Catálogo.
+
+CPQ.
+
+Firma.
+
+Contratos.
+
+Pagos.
+
+Facturas.
+
+---
+
+## AUTOMATION
+
+Workflows.
+
+Triggers.
+
+Conditions.
+
+Actions.
+
+Sequences.
+
+Background Jobs.
+
+Schedules.
+
+Webhooks.
+
+---
+
+## INTELLIGENCE
+
+Revenia AI.
+
+AI Sales Copilot.
+
+Lead Score.
+
+Opportunity Score.
+
+Buying Signals.
+
+Forecast.
+
+Call Intelligence.
+
+AI Agents.
+
+---
+
+## CUSTOMER SUCCESS
+
+Clientes activos.
+
+Renovaciones.
+
+Upselling.
+
+Cross-selling.
+
+Customer Health.
+
+Churn Risk.
+
+---
+
+## SECURITY
+
+Security Center.
+
+Audit Logs.
+
+MFA.
+
+RBAC.
+
+Data Protection.
+
+Security Alerts.
+
+API Security.
+
+Data Loss Prevention.
+
+AI Governance.
+
+---
+
+## PLATFORM
+
+Integraciones.
+
+API.
+
+Webhooks.
+
+Marketplace futuro.
+
+Developer Tools.
+
+---
+
+## SAAS MANAGEMENT
+
+Planes.
+
+Suscripciones.
+
+Facturación SaaS.
+
+Add-ons.
+
+Usage Billing.
+
+Usuarios.
+
+Roles.
+
+Workspaces.
+
+---
+
+# 5. INTERFAZ PRINCIPAL DEL CLIENTE
+
+El cliente que contrata Revenia verá su propio workspace.
+
+Nunca debe acceder al panel global de Revenia.
+
+Sidebar aproximado:
+
+## PRINCIPAL
+
+Inicio
+
+Clientes
+
+Oportunidades
+
+Presupuestos
+
+Inbox
+
+Tareas
+
+---
+
+## REVENUE
+
+Recovery Center
+
+Automatizaciones
+
+Intelligence
+
+Analytics
+
+---
+
+## OPERACIONES
+
+Productos
+
+Pagos
+
+Facturas
+
+Clientes activos
+
+---
+
+## SISTEMA
+
+Integraciones
+
+Equipo
+
+Seguridad
+
+Facturación
+
+Configuración
+
+---
+
+# 6. DASHBOARD DEL CLIENTE
+
+La pantalla inicial debe ser extremadamente útil.
+
+No convertirla en una colección de gráficas sin propósito.
+
+Debe mostrar primero:
+
+## Ingresos generados
+
+## € recuperados
+
+## Revenue at Risk
+
+## Forecast IA
+
+## Tasa de conversión
+
+Ejemplo:
+
+Ingresos generados:
+
+124.350 €
+
+Recuperados:
+
+42.680 €
+
+En riesgo:
+
+18.920 €
+
+Forecast:
+
+256.300 €
+
+---
+
+# 7. BLOQUE MÁS IMPORTANTE DEL DASHBOARD
+
+## “Revenia recomienda”
+
+Mostrar acciones concretas.
+
+Ejemplo:
+
+### Contacta con Laura Gómez
+
+Presupuesto:
+
+12.400 €
+
+8 días sin respuesta.
+
+Probabilidad de recuperación:
+
+78 %
+
+Acción:
+
+Enviar WhatsApp.
+
+---
+
+### Llama a Carlos Martínez
+
+18.000 €
+
+Cliente mostró interés pero dejó de responder.
+
+Acción:
+
+Llamar ahora.
+
+---
+
+### ConstructHack vuelve a mostrar interés
+
+Ha abierto el presupuesto hace 9 minutos.
+
+Acción:
+
+Contactar ahora.
+
+---
+
+# 8. RECOVERY CENTER
+
+Debe convertirse en uno de los módulos estrella de Revenia.
+
+Mostrar:
+
+## Revenue at Risk
+
+Cantidad total potencialmente en riesgo.
+
+## Recoverable Revenue
+
+Estimación de dinero recuperable.
+
+## Revenue Recovered
+
+Dinero recuperado gracias a acciones del sistema.
+
+## Recovery Rate
+
+Porcentaje de oportunidades recuperadas.
+
+---
+
+Cada oportunidad tendrá:
+
+Cliente.
+
+Importe.
+
+Días sin respuesta.
+
+Última actividad.
+
+Presupuesto.
+
+Comercial.
+
+Health Score.
+
+Recovery Probability.
+
+Próxima mejor acción.
+
+---
+
+Ejemplo:
+
+Hotel Miramar
+
+32.000 €
+
+10 días sin respuesta.
+
+Riesgo:
+
+ALTO.
+
+Probabilidad de recuperación:
+
+78 %.
+
+Recomendación:
+
+Llamar hoy 16:00–18:00.
+
+---
+
+# 9. CRM
+
+Cada empresa tendrá un CRM independiente.
+
+Entidades principales:
+
+Company
+
+User
+
+Contact
+
+Lead
+
+Customer
+
+Opportunity
+
+Deal
+
+Activity
+
+Task
+
+Note
+
+Conversation
+
+Message
+
+Quote
+
+Invoice
+
+Product
+
+Service
+
+File
+
+Automation
+
+Payment
+
+Subscription
+
+---
+
+# 10. CLIENT 360
+
+Cada cliente tendrá una ficha completa.
+
+Mostrar:
+
+Nombre.
+
+Empresa.
+
+Teléfono.
+
+Email.
+
+WhatsApp.
+
+Comercial.
+
+Origen.
+
+Estado.
+
+Valor potencial.
+
+Health Score.
+
+Última actividad.
+
+Próxima acción.
+
+---
+
+Tabs:
+
+Resumen
+
+Conversaciones
+
+Oportunidades
+
+Presupuestos
+
+Facturas
+
+Pagos
+
+Tareas
+
+Archivos
+
+Actividad
+
+Notas
+
+---
+
+# 11. AI BRIEF
+
+Dentro de cada cliente:
+
+## Revenia AI Brief
+
+La IA debe poder resumir automáticamente:
+
+- estado actual
+- conversaciones
+- oportunidades
+- objeciones
+- interés
+- riesgo
+- decisiones pendientes
+- acciones recomendadas
+
+Ejemplo:
+
+“Tecnobit está evaluando un presupuesto de 25.000 €. La principal objeción es el precio. El cliente ha revisado la propuesta tres veces y espera tomar una decisión esta semana.”
+
+---
+
+# 12. TIMELINE UNIVERSAL
+
+Toda interacción debe quedar registrada cronológicamente.
+
+Ejemplo:
+
+09:42
+
+Presupuesto abierto.
+
+09:31
+
+Email abierto.
+
+Ayer
+
+WhatsApp recibido.
+
+3 septiembre
+
+Reunión realizada.
+
+1 septiembre
+
+Presupuesto enviado.
+
+29 agosto
+
+Lead creado.
+
+---
+
+# 13. PIPELINE
+
+Pipeline visual Kanban.
+
+Estados iniciales:
+
+Nuevo lead
+
+↓
+
+Contactado
+
+↓
+
+Interesado
+
+↓
+
+Presupuesto
+
+↓
+
+Seguimiento
+
+↓
+
+Negociación
+
+↓
+
+Ganado / Perdido
+
+Cada tarjeta mostrará:
+
+Cliente.
+
+Importe.
+
+Comercial.
+
+Lead Score.
+
+Health Score.
+
+Días sin actividad.
+
+Canal.
+
+Riesgo.
+
+---
+
+# 14. OPPORTUNITY HEALTH SCORE
+
+Cada oportunidad tendrá puntuación 0–100.
+
+Analizar:
+
+Tiempo sin contacto.
+
+Respuestas.
+
+Presupuesto abierto.
+
+Visitas.
+
+Reuniones.
+
+Objeciones.
+
+Competidores.
+
+Interacción reciente.
+
+Decisores.
+
+Fecha estimada de compra.
+
+Actividad del comercial.
+
+---
+
+Estados:
+
+🟢 Saludable.
+
+🟠 Atención.
+
+🔴 En riesgo.
+
+---
+
+# 15. BUYING SIGNALS
+
+Detectar señales comerciales.
+
+Positivas:
+
+Presupuesto abierto.
+
+Presupuesto abierto varias veces.
+
+Pregunta por precio.
+
+Pregunta por fechas.
+
+Solicita financiación.
+
+Introduce otro decisor.
+
+Solicita contrato.
+
+Solicita cambios.
+
+---
+
+Negativas:
+
+Días sin respuesta.
+
+Presupuesto nunca abierto.
+
+Competidor mencionado.
+
+Objeción de precio.
+
+Cierre retrasado.
+
+Sin próxima acción.
+
+---
+
+# 16. LEAD SCORING
+
+Cada lead tendrá score.
+
+Ejemplo:
+
+87 / 100
+
+Factores:
+
+Actividad.
+
+Respuestas.
+
+Canal.
+
+Origen.
+
+Importe potencial.
+
+Interacción.
+
+Intención.
+
+Datos históricos.
+
+---
+
+# 17. PRESUPUESTOS
+
+Estados:
+
+Borrador.
+
+Enviado.
+
+Visualizado.
+
+Seguimiento.
+
+Aceptado.
+
+Rechazado.
+
+Caducado.
+
+---
+
+Campos:
+
+Número.
+
+Cliente.
+
+Productos.
+
+Servicios.
+
+Base imponible.
+
+IVA.
+
+Descuento.
+
+Importe total.
+
+Validez.
+
+Comercial.
+
+Fecha.
+
+Estado.
+
+---
+
+# 18. CPQ
+
+Preparar arquitectura para:
+
+Productos.
+
+Cantidades.
+
+Tarifas.
+
+Descuentos.
+
+Reglas de pricing.
+
+Margen.
+
+Aprobaciones.
+
+---
+
+Ejemplo:
+
+SI descuento > 15 %
+
+→ aprobación Manager.
+
+SI presupuesto > 50.000 €
+
+→ aprobación Director.
+
+---
+
+# 19. PORTAL DE PRESUPUESTO
+
+Cada presupuesto podrá disponer de una página privada.
+
+Cliente podrá:
+
+Ver.
+
+Descargar.
+
+Comentar.
+
+Aceptar.
+
+Rechazar.
+
+Solicitar cambios.
+
+Firmar.
+
+Pagar.
+
+---
+
+# 20. FACTURAS
+
+Crear módulo independiente:
+
+## Facturas
+
+Debe centralizar todas las facturas de la empresa.
+
+Dashboard:
+
+Facturas totales.
+
+Pendientes de cobro.
+
+Cobrado este mes.
+
+Vencidas.
+
+---
+
+Estados:
+
+Borrador.
+
+Pendiente.
+
+Pagada.
+
+Vencida.
+
+Cancelada.
+
+En revisión.
+
+---
+
+Campos:
+
+Número.
+
+Empresa.
+
+Cliente.
+
+Fecha emisión.
+
+Fecha vencimiento.
+
+Base imponible.
+
+IVA.
+
+Total.
+
+Método pago.
+
+Estado.
+
+PDF.
+
+Notas.
+
+Referencia.
+
+Fuente.
+
+---
+
+# 21. CONEXIÓN CON EXCEL Y HOJAS DE CÁLCULO
+
+Cada empresa podrá conectar o importar información desde:
+
+XLSX.
+
+XLS.
+
+CSV.
+
+Google Sheets.
+
+OneDrive.
+
+SharePoint.
+
+Google Drive.
+
+---
+
+Durante desarrollo local:
+
+crear providers mock.
+
+No depender de servicios externos reales.
+
+---
+
+# 22. IMPORTADOR DE HOJAS DE CÁLCULO
+
+Flujo:
+
+Archivo seleccionado.
+
+↓
+
+Lectura.
+
+↓
+
+Preview.
+
+↓
+
+Detección de columnas.
+
+↓
+
+Mapping.
+
+↓
+
+Validación.
+
+↓
+
+Detección duplicados.
+
+↓
+
+Preview resultado.
+
+↓
+
+Importar.
+
+↓
+
+Informe.
+
+---
+
+Permitir relacionar:
+
+Número factura.
+
+Cliente.
+
+CIF.
+
+Importe.
+
+IVA.
+
+Fecha.
+
+Vencimiento.
+
+Estado.
+
+Notas.
+
+---
+
+El sistema debe soportar:
+
+columnas incorrectas.
+
+datos vacíos.
+
+formatos diferentes.
+
+errores.
+
+archivos corruptos.
+
+duplicados.
+
+---
+
+Nunca provocar fallo completo del sistema.
+
+---
+
+# 23. FACTURAS SINCRONIZADAS
+
+Guardar la fuente:
+
+Excel.
+
+CSV.
+
+Google Sheets.
+
+OneDrive.
+
+Drive.
+
+API.
+
+Manual.
+
+---
+
+Mostrar:
+
+Última sincronización.
+
+Estado.
+
+Errores.
+
+Número registros.
+
+---
+
+# 24. SEGUIMIENTO DE COBROS
+
+Crear automatizaciones:
+
+Factura próxima a vencer.
+
+↓
+
+Recordatorio.
+
+Factura vencida.
+
+↓
+
+Actualizar estado.
+
+↓
+
+Avisar responsable.
+
+↓
+
+Crear tarea.
+
+↓
+
+Preparar email.
+
+---
+
+# 25. PAGOS
+
+Arquitectura desacoplada.
+
+Interfaz:
+
+PaymentProvider
+
+Implementaciones:
+
+MockPaymentProvider
+
+StripePaymentProvider futuro.
+
+---
+
+El desarrollo local utilizará únicamente:
+
+MockPaymentProvider.
+
+---
+
+Debe simular:
+
+Pago aprobado.
+
+Pago rechazado.
+
+Tarjeta caducada.
+
+Suscripción.
+
+Renovación.
+
+Cancelación.
+
+Upgrade.
+
+Downgrade.
+
+Reembolso.
+
+Webhook.
+
+Webhook duplicado.
+
+Webhook inválido.
+
+Timeout.
+
+---
+
+# 26. NO ACOPLAR STRIPE
+
+La lógica de negocio nunca debe llamar directamente a Stripe.
+
+Utilizar:
+
+services/payment/
+
+providers/
+
+interfaces/
+
+adapters/
+
+---
+
+# 27. PLANES DE REVENIA
+
+Crear sistema flexible.
+
+Inicialmente:
+
+## STARTER
+
+Ejemplo:
+
+29 €/mes por usuario.
+
+Incluye:
+
+CRM.
+
+Clientes.
+
+Oportunidades.
+
+Presupuestos.
+
+Email.
+
+WhatsApp básico.
+
+Automatizaciones básicas.
+
+Analytics.
+
+Firma.
+
+Stripe básico.
+
+---
+
+## PRO
+
+79 €/mes por usuario.
+
+Incluye Starter.
+
+WhatsApp avanzado.
+
+IA Revenia.
+
+Recovery Center.
+
+Automatizaciones avanzadas.
+
+Analytics.
+
+Firma.
+
+Pagos completos.
+
+Roles.
+
+---
+
+## BUSINESS
+
+149 €/mes por usuario.
+
+Incluye Pro.
+
+Automatizaciones amplias.
+
+IA avanzada.
+
+Forecast.
+
+Security Center.
+
+Audit Logs.
+
+API.
+
+Webhooks.
+
+Integraciones avanzadas.
+
+Soporte prioritario.
+
+---
+
+## ENTERPRISE
+
+Precio personalizado o desde referencia aproximada.
+
+SSO.
+
+SAML.
+
+SCIM.
+
+Seguridad avanzada.
+
+DLP.
+
+Audit extendido.
+
+SLA.
+
+API avanzada.
+
+Entorno dedicado futuro.
+
+Soporte prioritario.
+
+---
+
+Precios definitivos configurables desde base de datos.
+
+Nunca hardcodear el modelo comercial.
+
+---
+
+# 28. ADD-ONS
+
+Arquitectura preparada para vender:
+
+AI Pack.
+
+WhatsApp Pack.
+
+Voice AI.
+
+Automation Pack.
+
+Storage Pack.
+
+Security Advanced.
+
+Enrichment Pack.
+
+Backup Extended.
+
+Additional Users.
+
+API Pack.
+
+---
+
+# 29. USAGE BILLING
+
+Medir:
+
+Usuarios.
+
+Mensajes.
+
+Emails.
+
+IA.
+
+Automatizaciones.
+
+Storage.
+
+API requests.
+
+Voice minutes.
+
+Enrichment credits.
+
+---
+
+# 30. PANEL DEL PROPIETARIO DE REVENIA
+
+Debe existir un panel completamente independiente.
+
+Solo accesible a:
+
+SUPER ADMIN / OWNER REVENIA.
+
+No es el mismo panel que utilizan los clientes.
+
+---
+
+Mostrar:
+
+MRR.
+
+ARR.
+
+Clientes activos.
+
+Trials.
+
+Conversión Trial → Pago.
+
+Churn.
+
+ARPU.
+
+Pagos fallidos.
+
+Add-ons.
+
+Uso IA.
+
+WhatsApp.
+
+Automatizaciones.
+
+API.
+
+Storage.
+
+Uptime.
+
+---
+
+# 31. ADMIN GLOBAL
+
+Secciones:
+
+Overview.
+
+Empresas.
+
+Suscripciones.
+
+Ingresos.
+
+Uso.
+
+Planes.
+
+Add-ons.
+
+Soporte.
+
+Seguridad.
+
+Estado del sistema.
+
+Integraciones.
+
+Configuración.
+
+---
+
+# 32. EMPRESAS CLIENTES
+
+Desde panel propietario:
+
+Ver empresa.
+
+Plan.
+
+MRR.
+
+Usuarios.
+
+Consumo.
+
+Estado.
+
+Fecha alta.
+
+Último acceso.
+
+Facturación.
+
+Tickets.
+
+Integraciones.
+
+Security Score.
+
+---
+
+Nunca permitir acceso arbitrario a datos privados del CRM salvo funcionalidad de soporte expresamente autorizada y auditada.
+
+---
+
+# 33. SOPORTE
+
+Crear sistema futuro de tickets.
+
+Estados:
+
+Open.
+
+In Progress.
+
+Waiting Customer.
+
+Resolved.
+
+Closed.
+
+---
+
+Prioridad:
+
+Low.
+
+Medium.
+
+High.
+
+Critical.
+
+---
+
+# 34. ESTADO DEL SISTEMA
+
+Panel interno:
+
+Web App.
+
+API.
+
+Database.
+
+Workers.
+
+Redis.
+
+Messaging.
+
+Payments.
+
+AI.
+
+Storage.
+
+---
+
+Mostrar:
+
+Operational.
+
+Degraded.
+
+Partial Outage.
+
+Outage.
+
+---
+
+# 35. SISTEMA MULTI-TENANT
+
+Arquitectura obligatoria.
+
+Toda entidad empresarial tendrá:
+
+tenant_id o company_id.
+
+---
+
+Ejemplos:
+
+Company.
+
+Customer.
+
+Lead.
+
+Invoice.
+
+Quote.
+
+File.
+
+Conversation.
+
+Task.
+
+Automation.
+
+Payment.
+
+---
+
+Un usuario nunca puede acceder a datos de otro tenant.
+
+Incluso modificando:
+
+URL.
+
+ID.
+
+Body.
+
+Query.
+
+API request.
+
+---
+
+Crear pruebas específicas contra IDOR y cross-tenant access.
+
+---
+
+# 36. ROLES
+
+Crear:
+
+Super Admin.
+
+Owner.
+
+Admin.
+
+Manager.
+
+Sales.
+
+Employee.
+
+Viewer.
+
+---
+
+Preparar permisos granulares.
+
+Ejemplos:
+
+customer.view
+
+customer.create
+
+customer.edit
+
+customer.delete
+
+invoice.view
+
+invoice.create
+
+invoice.edit
+
+billing.manage
+
+user.manage
+
+automation.manage
+
+security.view
+
+audit.view
+
+data.export
+
+---
+
+# 37. RBAC
+
+Nunca controlar permisos únicamente en UI.
+
+Validar en backend.
+
+La interfaz puede esconder botones.
+
+Pero la API debe verificar siempre autorización.
+
+---
+
+# 38. SECURITY CENTER
+
+Cada empresa tendrá:
+
+## Security Score
+
+0–100.
+
+---
+
+Subcategorías:
+
+Identity Security.
+
+Data Protection.
+
+Access Control.
+
+API Security.
+
+Integrations.
+
+Audit.
+
+---
+
+# 39. IDENTIDAD
+
+Preparar:
+
+Password.
+
+Magic Link.
+
+Google.
+
+Microsoft.
+
+MFA.
+
+Passkeys.
+
+SSO futuro.
+
+SAML futuro.
+
+SCIM futuro.
+
+---
+
+# 40. SESIONES
+
+Mostrar:
+
+Dispositivo.
+
+Browser.
+
+IP.
+
+Localización aproximada.
+
+Último acceso.
+
+Sesión actual.
+
+---
+
+Permitir cerrar sesiones.
+
+---
+
+# 41. SECURITY ALERTS
+
+Detectar:
+
+Login desde dispositivo desconocido.
+
+País nuevo.
+
+Muchos intentos fallidos.
+
+Descarga masiva.
+
+Exportación masiva.
+
+API Key creada.
+
+Rol elevado.
+
+Password cambiado.
+
+MFA desactivado.
+
+---
+
+# 42. DATA LOSS PREVENTION
+
+Preparar arquitectura.
+
+Ejemplo:
+
+Usuario intenta exportar:
+
+18.000 clientes.
+
+Sistema:
+
+bloquea.
+
+solicita aprobación.
+
+registra audit log.
+
+genera alerta.
+
+---
+
+# 43. SENSITIVE DATA SCANNER
+
+Futuro módulo.
+
+Buscar posibles:
+
+DNI.
+
+IBAN.
+
+Tarjetas.
+
+Tokens.
+
+Passwords.
+
+Información sensible.
+
+---
+
+# 44. AI GOVERNANCE
+
+Crear:
+
+## AI Control Center
+
+Cada empresa podrá definir:
+
+Qué agentes están activos.
+
+Qué datos pueden consultar.
+
+Qué acciones pueden realizar.
+
+Si pueden ejecutar acciones automáticamente.
+
+---
+
+Modos:
+
+Suggestion Only.
+
+Approval Required.
+
+Autonomous.
+
+---
+
+Registrar siempre:
+
+Agente.
+
+Acción.
+
+Datos usados.
+
+Resultado.
+
+Hora.
+
+Usuario responsable.
+
+---
+
+# 45. REVENIA AI
+
+Añadir asistente permanente.
+
+Ejemplos:
+
+“¿Qué clientes debo contactar hoy?”
+
+“Muéstrame oportunidades en riesgo.”
+
+“¿Cuánto dinero podemos recuperar?”
+
+“Resume Tecnobit.”
+
+“Prepara un WhatsApp.”
+
+“¿Qué comercial tiene mejor conversión?”
+
+“¿Por qué estamos perdiendo ventas?”
+
+---
+
+# 46. AI AGENTS
+
+Preparar arquitectura para:
+
+Recovery Agent.
+
+Follow-up Agent.
+
+Pipeline Agent.
+
+Meeting Agent.
+
+Customer Success Agent.
+
+Manager Agent.
+
+Security Agent.
+
+---
+
+No dar autonomía completa inicialmente.
+
+Comenzar:
+
+recommendation only.
+
+---
+
+# 47. AI AUTOMATION BUILDER
+
+Permitir lenguaje natural:
+
+Usuario:
+
+“Cuando un presupuesto de más de 10.000 € lleve cinco días sin respuesta envía WhatsApp y avisa al comercial.”
+
+Revenia debe transformar:
+
+Trigger.
+
+Conditions.
+
+Wait.
+
+Actions.
+
+---
+
+Siempre mostrar preview antes de activar.
+
+---
+
+# 48. AUTOMATION ENGINE
+
+Modelo:
+
+TRIGGER
+
+↓
+
+CONDITION
+
+↓
+
+ACTION
+
+---
+
+Triggers:
+
+Lead created.
+
+Quote sent.
+
+Quote viewed.
+
+Quote accepted.
+
+Quote rejected.
+
+Customer replied.
+
+No activity.
+
+Invoice due.
+
+Invoice overdue.
+
+Payment received.
+
+Date reached.
+
+Webhook received.
+
+---
+
+Actions:
+
+Send mock WhatsApp.
+
+Send email.
+
+Create task.
+
+Create notification.
+
+Change status.
+
+Assign user.
+
+Add tag.
+
+Call webhook.
+
+Start workflow.
+
+Stop workflow.
+
+---
+
+# 49. BACKGROUND JOBS
+
+Usar workers cuando corresponda.
+
+Ejemplos:
+
+Email.
+
+Messaging.
+
+PDF.
+
+Import.
+
+Automation.
+
+Synchronization.
+
+Notifications.
+
+AI processing.
+
+---
+
+Estados:
+
+Queued.
+
+Processing.
+
+Completed.
+
+Failed.
+
+Retrying.
+
+---
+
+# 50. LOCAL JOB MONITOR
+
+Crear pantalla de desarrollo.
+
+Mostrar:
+
+Job.
+
+Queue.
+
+Payload safe summary.
+
+Status.
+
+Attempts.
+
+Duration.
+
+Error.
+
+---
+
+# 51. INBOX
+
+Inbox unificado.
+
+Inicialmente mocks:
+
+WhatsApp.
+
+Email.
+
+---
+
+Futuro:
+
+SMS.
+
+Instagram.
+
+Messenger.
+
+Web Chat.
+
+Voice.
+
+---
+
+# 52. MOCK MESSAGING PROVIDER
+
+Crear:
+
+MessagingProvider.
+
+MockMessagingProvider.
+
+WhatsAppProvider futuro.
+
+---
+
+Simular:
+
+mensaje enviado.
+
+recibido.
+
+failed.
+
+delivered.
+
+read.
+
+reply.
+
+webhook.
+
+---
+
+# 53. EMAIL LOCAL
+
+Utilizar:
+
+Mailpit
+
+o equivalente.
+
+---
+
+Probar:
+
+Welcome.
+
+Reset password.
+
+Quote.
+
+Invoice.
+
+Payment.
+
+Reminder.
+
+Follow-up.
+
+Alert.
+
+---
+
+No enviar email real.
+
+---
+
+# 54. VOICE AI
+
+Roadmap futuro.
+
+Arquitectura preparada.
+
+Funciones futuras:
+
+Atender llamadas.
+
+Identificar cliente.
+
+Consultar CRM.
+
+Agendar.
+
+Registrar conversación.
+
+Crear lead.
+
+Crear tarea.
+
+---
+
+# 55. CUSTOMER SUCCESS
+
+Crear arquitectura para:
+
+Customer Health.
+
+Renewals.
+
+Upsell.
+
+Cross-sell.
+
+Churn Risk.
+
+---
+
+Ejemplo:
+
+Cliente:
+
+MRR 1.250 €.
+
+Renewal:
+
+87 días.
+
+Health:
+
+92.
+
+Risk:
+
+Low.
+
+---
+
+# 56. WIN / LOSS INTELLIGENCE
+
+Registrar:
+
+Precio.
+
+Competidor.
+
+Timing.
+
+Presupuesto.
+
+No decisión.
+
+Falta de seguimiento.
+
+Otro.
+
+---
+
+Dashboard:
+
+% pérdidas por motivo.
+
+Importe perdido.
+
+Importe recuperado.
+
+---
+
+# 57. FORECAST
+
+Mostrar:
+
+Pipeline.
+
+Weighted Pipeline.
+
+AI Forecast.
+
+Objetivo.
+
+Gap.
+
+---
+
+# 58. OBJETIVOS
+
+Objetivos:
+
+Usuario.
+
+Equipo.
+
+Mensual.
+
+Trimestral.
+
+Producto.
+
+---
+
+# 59. COMISIONES
+
+Roadmap.
+
+Configurable.
+
+Venta.
+
+Renovación.
+
+Upsell.
+
+---
+
+# 60. LEAD ROUTING
+
+Asignación:
+
+manual.
+
+round robin.
+
+región.
+
+sector.
+
+importe.
+
+carga comercial.
+
+IA futuro.
+
+---
+
+# 61. CUSTOM OBJECTS
+
+Arquitectura extensible.
+
+Ejemplos:
+
+Propiedad.
+
+Vehículo.
+
+Máquina.
+
+Tratamiento.
+
+Curso.
+
+Proyecto.
+
+---
+
+No implementar inmediatamente si dificulta MVP.
+
+Pero evitar decisiones de arquitectura que hagan imposible añadirlo.
+
+---
+
+# 62. INTEGRACIONES
+
+Arquitectura provider-based.
+
+Preparar:
+
+Google Workspace.
+
+Microsoft 365.
+
+Google Calendar.
+
+Outlook.
+
+Drive.
+
+OneDrive.
+
+SharePoint.
+
+Stripe.
+
+WhatsApp.
+
+Zapier.
+
+Make.
+
+n8n.
+
+Holded.
+
+Sage.
+
+A3.
+
+Shopify.
+
+WooCommerce.
+
+---
+
+Local:
+
+Mocks.
+
+---
+
+# 63. API
+
+Preparar:
+
+REST API.
+
+Webhooks.
+
+API Keys.
+
+Rate Limits.
+
+Scopes.
+
+Developer Logs.
+
+---
+
+# 64. LOCAL DEVELOPMENT ENVIRONMENT
+
+Quiero arrancar todo mediante:
+
+.\start-dev.ps1
+
+o:
+
+docker compose up
+
+---
+
+Debe iniciar:
+
+Frontend.
+
+Backend.
+
+PostgreSQL.
+
+Redis.
+
+Workers.
+
+Mailpit.
+
+Mock Payments.
+
+Mock Messaging.
+
+Storage local.
+
+---
+
+# 65. START-DEV.PS1
+
+Verificar:
+
+Node.
+
+npm/pnpm.
+
+Docker.
+
+Dependencies.
+
+.env.local.
+
+Ports.
+
+Database.
+
+Redis.
+
+Migrations.
+
+Seed.
+
+Workers.
+
+---
+
+Mostrar:
+
+Frontend ............ OK
+
+Backend ............. OK
+
+Database ............ OK
+
+Redis ............... OK
+
+Workers ............. OK
+
+Mail ................. OK
+
+Payments Mock ........ OK
+
+Messaging Mock ....... OK
+
+Storage .............. OK
+
+---
+
+Finalmente:
+
+======================================
+
+REVENIA LOCAL DEVELOPMENT ENVIRONMENT
+
+SYSTEM READY
+
+http://localhost:3000
+
+======================================
+
+---
+
+# 66. DEV USERS
+
+Seed ficticio:
+
+SuperAdmin.
+
+Owner.
+
+Admin.
+
+Manager.
+
+Sales.
+
+Employee.
+
+Viewer.
+
+---
+
+Nunca datos personales reales.
+
+Contraseñas únicamente de desarrollo.
+
+Mostrar credenciales claramente en README.
+
+---
+
+# 67. DEV DATA
+
+Generar:
+
+10 empresas.
+
+100+ clientes.
+
+50 leads.
+
+30 oportunidades.
+
+40 presupuestos.
+
+50 facturas.
+
+20 conversaciones.
+
+100 mensajes.
+
+50 tareas.
+
+10 workflows.
+
+5 planes.
+
+suscripciones.
+
+pagos.
+
+logs.
+
+---
+
+Datos realistas españoles ficticios.
+
+---
+
+# 68. DEV-TOOLS
+
+Ruta:
+
+/dev-tools
+
+Solo:
+
+NODE_ENV=development.
+
+---
+
+Funciones:
+
+Generate tenant.
+
+Generate clients.
+
+Generate leads.
+
+Generate invoices.
+
+Generate opportunities.
+
+Reset seed.
+
+Change subscription.
+
+Run automation.
+
+Trigger job.
+
+Simulate webhook.
+
+Simulate payment.
+
+Simulate WhatsApp.
+
+Simulate email.
+
+Simulate failures.
+
+View queues.
+
+View logs.
+
+---
+
+Nunca compilar esta funcionalidad de manera accesible en producción.
+
+Añadir defensa adicional en servidor.
+
+---
+
+# 69. HEALTH CHECK
+
+Crear:
+
+/api/health
+
+Respuesta:
+
+{
+  "status": "healthy",
+  "database": "ok",
+  "redis": "ok",
+  "workers": "ok",
+  "storage": "ok"
+}
+
+---
+
+Crear health-check.ps1.
+
+---
+
+# 70. LOGGING
+
+Logs estructurados.
+
+Ejemplos:
+
+[AUTH]
+
+[CRM]
+
+[INVOICE]
+
+[PAYMENTS]
+
+[AUTOMATION]
+
+[SECURITY]
+
+[DATABASE]
+
+[WORKER]
+
+[AI]
+
+---
+
+Nunca registrar:
+
+Password.
+
+Token.
+
+Card.
+
+Secret.
+
+Sensitive body.
+
+---
+
+# 71. AUDIT LOGS
+
+Registrar:
+
+actor.
+
+tenant.
+
+action.
+
+resource.
+
+resource_id.
+
+timestamp.
+
+IP cuando proceda.
+
+result.
+
+metadata segura.
+
+---
+
+Acciones:
+
+login.
+
+role.change.
+
+customer.delete.
+
+invoice.delete.
+
+data.export.
+
+api_key.create.
+
+automation.enable.
+
+subscription.change.
+
+---
+
+# 72. STORAGE
+
+Durante local:
+
+almacenamiento local o MinIO si aporta valor.
+
+---
+
+Validar uploads:
+
+MIME.
+
+extensión.
+
+tamaño.
+
+contenido cuando sea posible.
+
+nombre.
+
+tenant ownership.
+
+---
+
+# 73. CIBERSEGURIDAD
+
+Implementar desde el principio:
+
+Password hashing seguro.
+
+Input validation.
+
+Output encoding.
+
+ORM parametrizado.
+
+XSS protection.
+
+CSRF donde corresponda.
+
+Rate limiting.
+
+Session security.
+
+HttpOnly.
+
+Secure en producción.
+
+SameSite.
+
+RBAC.
+
+Tenant isolation.
+
+File validation.
+
+Webhook signatures.
+
+Security headers.
+
+Secret management.
+
+Audit.
+
+Security logs.
+
+---
+
+# 74. SECURITY TESTS
+
+Crear pruebas para:
+
+SQL injection payloads.
+
+XSS payloads.
+
+IDOR.
+
+Cross tenant.
+
+Forbidden role.
+
+Invalid webhook.
+
+Repeated webhook.
+
+Oversized upload.
+
+Invalid MIME.
+
+Rate limiting.
+
+Privilege escalation.
+
+---
+
+# 75. TESTING
+
+Implementar:
+
+Unit.
+
+Integration.
+
+API.
+
+E2E.
+
+RBAC.
+
+Tenant.
+
+Security.
+
+Automation.
+
+Payments.
+
+Invoices.
+
+Imports.
+
+---
+
+# 76. E2E PRINCIPAL
+
+Automatizar:
+
+1. Crear empresa.
+2. Crear owner.
+3. Login.
+4. Crear lead.
+5. Convertir lead.
+6. Crear cliente.
+7. Crear oportunidad.
+8. Crear presupuesto.
+9. Enviar.
+10. Ejecutar seguimiento.
+11. Cliente acepta.
+12. Crear factura.
+13. Simular pago.
+14. Marcar pagada.
+15. Registrar audit.
+16. Verificar dashboard.
+17. Verificar Recovery Revenue.
+
+Resultado real:
+
+FULL BUSINESS FLOW: PASS
+
+solo si se ejecutó correctamente.
+
+---
+
+# 77. TEST ALL
+
+Crear:
+
+npm run test:all
+
+Resultado esperado:
+
+AUTH ................ PASS
+
+DATABASE ............ PASS
+
+CRM ................. PASS
+
+LEADS ................ PASS
+
+PIPELINE ............ PASS
+
+QUOTES .............. PASS
+
+INVOICES ............ PASS
+
+IMPORTS ............. PASS
+
+PAYMENTS ............ PASS
+
+EMAIL ................ PASS
+
+MESSAGING ........... PASS
+
+AUTOMATIONS ......... PASS
+
+WORKERS ............. PASS
+
+RBAC ................. PASS
+
+TENANT ISOLATION .... PASS
+
+SECURITY ............ PASS
+
+E2E .................. PASS
+
+---
+
+ALL SYSTEMS PASSED
+
+solo cuando realmente hayan pasado.
+
+---
+
+# 78. FAILURE SIMULATION
+
+Probar:
+
+Database down.
+
+Redis down.
+
+Worker down.
+
+API error.
+
+Payment rejection.
+
+Webhook duplicate.
+
+Invalid webhook.
+
+Invalid role.
+
+Corrupt XLSX.
+
+Malformed CSV.
+
+Timeout.
+
+Storage unavailable.
+
+Messaging unavailable.
+
+AI unavailable.
+
+---
+
+El sistema debe degradarse de manera controlada.
+
+---
+
+# 79. POWERSHELL
+
+Crear:
+
+start-dev.ps1
+
+stop-dev.ps1
+
+reset-dev.ps1
+
+test-all.ps1
+
+health-check.ps1
+
+---
+
+# 80. COMANDOS
+
+Preparar:
+
+npm run dev
+
+npm run build
+
+npm run lint
+
+npm run typecheck
+
+npm run test
+
+npm run test:e2e
+
+npm run test:security
+
+npm run test:all
+
+npm run db:migrate
+
+npm run db:seed
+
+npm run db:reset
+
+npm run dev:reset
+
+npm run health
+
+---
+
+# 81. DOCKER
+
+Usarlo cuando realmente facilite reproducibilidad.
+
+docker-compose.yml:
+
+app.
+
+database.
+
+redis.
+
+mailpit.
+
+worker.
+
+storage opcional.
+
+---
+
+Evitar microservicios prematuros.
+
+---
+
+# 82. BASE DE DATOS
+
+Posibles entidades:
+
+Tenant
+
+Company
+
+User
+
+Role
+
+Permission
+
+Membership
+
+Customer
+
+Contact
+
+Lead
+
+Opportunity
+
+Pipeline
+
+PipelineStage
+
+Quote
+
+QuoteItem
+
+Invoice
+
+InvoiceItem
+
+Payment
+
+Subscription
+
+Plan
+
+Addon
+
+UsageRecord
+
+Conversation
+
+Message
+
+Task
+
+Activity
+
+Note
+
+File
+
+Automation
+
+AutomationStep
+
+AutomationExecution
+
+Job
+
+Notification
+
+Integration
+
+ApiKey
+
+Webhook
+
+AuditLog
+
+SecurityEvent
+
+AIAction
+
+ImportJob
+
+ImportRow
+
+---
+
+Diseñar relaciones correctamente.
+
+---
+
+# 83. ARQUITECTURA DE CÓDIGO
+
+Evitar:
+
+components gigantes.
+
+services gigantes.
+
+business logic dentro de React.
+
+queries dispersas.
+
+Stripe acoplado.
+
+WhatsApp acoplado.
+
+tenant checks manuales duplicados.
+
+---
+
+Favorecer:
+
+domain services.
+
+repositories.
+
+providers.
+
+adapters.
+
+validation schemas.
+
+shared permissions.
+
+centralized tenant enforcement.
+
+---
+
+# 84. STACK
+
+Si el repositorio actual no contradice esta decisión:
+
+Frontend:
+
+Next.js.
+
+TypeScript.
+
+React.
+
+Tailwind.
+
+shadcn/ui.
+
+---
+
+Database:
+
+PostgreSQL.
+
+---
+
+ORM:
+
+Prisma o equivalente existente.
+
+---
+
+Cache / Queue:
+
+Redis cuando aporte valor.
+
+---
+
+Local Email:
+
+Mailpit.
+
+---
+
+Testing:
+
+Vitest/Jest.
+
+Playwright.
+
+---
+
+Logging:
+
+Pino o equivalente.
+
+---
+
+Validation:
+
+Zod.
+
+---
+
+Pero:
+
+NO cambiar stack existente sin justificar.
+
+---
+
+# 85. UX/UI
+
+Visualmente Revenia debe sentirse como una combinación de:
+
+Linear.
+
+Attio.
+
+Stripe.
+
+HubSpot.
+
+Pipedrive.
+
+---
+
+Características:
+
+Premium.
+
+Minimalista.
+
+Mucho espacio.
+
+Cards limpias.
+
+Jerarquía clara.
+
+Pocos colores.
+
+Estados bien diferenciados.
+
+Dark sidebar.
+
+Light workspace.
+
+Accent purple/indigo.
+
+---
+
+# 86. REGLA DE UX
+
+Muchas funcionalidades.
+
+Poca complejidad visible.
+
+---
+
+No mostrar todo simultáneamente.
+
+Usar progressive disclosure.
+
+Tabs.
+
+Command palette.
+
+Drawers.
+
+Modals.
+
+Context menus.
+
+---
+
+# 87. COMMAND PALETTE
+
+⌘ K
+
+Buscar:
+
+Cliente.
+
+Presupuesto.
+
+Factura.
+
+Contacto.
+
+Acción.
+
+---
+
+Comandos:
+
+Crear cliente.
+
+Crear presupuesto.
+
+Registrar pago.
+
+Crear tarea.
+
+Abrir Recovery Center.
+
+Preguntar a Revenia AI.
+
+---
+
+# 88. SEARCH
+
+Global.
+
+Buscar:
+
+Clientes.
+
+Empresas.
+
+Teléfonos.
+
+Emails.
+
+Facturas.
+
+Presupuestos.
+
+Conversaciones.
+
+IDs.
+
+---
+
+# 89. PLAN DEL DESARROLLO
+
+NO implementar todo simultáneamente.
+
+---
+
+## FASE 0
+
+Auditoría técnica.
+
+Infraestructura local.
+
+Docker.
+
+Database.
+
+Auth.
+
+Logging.
+
+Testing.
+
+CI local.
+
+---
+
+## FASE 1
+
+Multi-tenant.
+
+Users.
+
+RBAC.
+
+CRM.
+
+Customers.
+
+Leads.
+
+Pipeline.
+
+Tasks.
+
+---
+
+## FASE 2
+
+Quotes.
+
+Products.
+
+Invoices.
+
+Spreadsheet Imports.
+
+Files.
+
+---
+
+## FASE 3
+
+Mock Email.
+
+Mock Messaging.
+
+Automation Engine.
+
+Workers.
+
+---
+
+## FASE 4
+
+Payments Mock.
+
+Plans.
+
+Subscriptions.
+
+Usage.
+
+Client Billing.
+
+---
+
+## FASE 5
+
+Owner Admin Panel.
+
+Companies.
+
+MRR.
+
+ARR.
+
+Usage.
+
+Support.
+
+System Health.
+
+---
+
+## FASE 6
+
+Recovery Center.
+
+Revenue at Risk.
+
+Recovery Metrics.
+
+Opportunity Health.
+
+---
+
+## FASE 7
+
+AI Copilot.
+
+Lead Scoring.
+
+Buying Signals.
+
+Forecast.
+
+AI Brief.
+
+---
+
+## FASE 8
+
+Security Center.
+
+Audit.
+
+Alerts.
+
+DLP foundations.
+
+Security testing.
+
+---
+
+## FASE 9
+
+Portal cliente.
+
+Firma.
+
+Advanced CPQ.
+
+---
+
+## FASE 10
+
+Customer Success.
+
+Renewals.
+
+Upsell.
+
+Cross-sell.
+
+---
+
+## FASE 11
+
+External integrations.
+
+Solo después de que mocks sean estables.
+
+---
+
+## FASE 12
+
+Production preparation.
+
+NO deployment todavía.
+
+---
+
+# 90. CRITERIO DE FINALIZACIÓN DE CADA FASE
+
+Cada fase necesita:
+
+Implementation.
+
+Tests.
+
+Security review.
+
+Documentation.
+
+Manual verification.
+
+No TypeScript errors.
+
+No important lint errors.
+
+No regression.
+
+---
+
+# 91. DOCUMENTACIÓN
+
+README.md completo.
+
+Además:
+
+docs/
+
+architecture.md
+
+security.md
+
+database.md
+
+rbac.md
+
+multi-tenancy.md
+
+payments.md
+
+automation.md
+
+testing.md
+
+local-development.md
+
+deployment-future.md
+
+---
+
+# 92. DECISION LOG
+
+Crear:
+
+docs/adr/
+
+Architecture Decision Records.
+
+Ejemplo:
+
+ADR-001 database architecture.
+
+ADR-002 tenant model.
+
+ADR-003 payment providers.
+
+---
+
+Esto evitará olvidar por qué se tomaron decisiones.
+
+---
+
+# 93. CHANGELOG
+
+Mantener:
+
+CHANGELOG.md
+
+---
+
+# 94. DEVELOPMENT PROGRESS
+
+Crear:
+
+PROJECT_STATUS.md
+
+Mostrar módulos:
+
+CRM
+
+Quotes
+
+Invoices
+
+Automation
+
+Payments
+
+AI
+
+Security
+
+etc.
+
+---
+
+Estados:
+
+TODO.
+
+IN PROGRESS.
+
+IMPLEMENTED.
+
+TESTED.
+
+BLOCKED.
+
+---
+
+# 95. MIGRACIONES
+
+Nunca modificar schema directamente sin migración.
+
+Las migraciones deben poder:
+
+aplicarse.
+
+revertirse cuando sea razonable.
+
+probarse en base limpia.
+
+---
+
+# 96. DATOS
+
+Usar únicamente datos ficticios.
+
+Nunca almacenar datos reales durante desarrollo.
+
+---
+
+# 97. SECRETS
+
+Crear:
+
+.env.example
+
+.env.local
+
+.env.test
+
+---
+
+Nunca commitear secretos.
+
+Añadir protecciones para evitar que test ejecute claves production.
+
+---
+
+# 98. PERFORMANCE
+
+No optimizar prematuramente.
+
+Pero medir:
+
+queries.
+
+N+1.
+
+large lists.
+
+pagination.
+
+indexes.
+
+API latency.
+
+job duration.
+
+---
+
+# 99. OBSERVABILITY
+
+Localmente poder visualizar:
+
+logs.
+
+jobs.
+
+errors.
+
+health.
+
+database state.
+
+mail.
+
+mock payments.
+
+mock messages.
+
+---
+
+# 100. FINAL LOCAL COMMAND
+
+Cuando la plataforma esté madura quiero poder ejecutar:
+
+.\start-dev.ps1
+
+y posteriormente:
+
+.\test-all.ps1
+
+---
+
+Resultado:
+
+======================================
+
+REVENIA LOCAL DEVELOPMENT ENVIRONMENT
+
+======================================
+
+Frontend ................. ONLINE
+
+Backend .................. ONLINE
+
+Database ................. ONLINE
+
+Redis .................... ONLINE
+
+Workers .................. ONLINE
+
+Email Simulator .......... ONLINE
+
+Payment Simulator ........ ONLINE
+
+Messaging Simulator ...... ONLINE
+
+Storage .................. ONLINE
+
+Authentication ........... PASS
+
+CRM ...................... PASS
+
+Pipeline ................. PASS
+
+Quotes ................... PASS
+
+Invoices ................. PASS
+
+Imports .................. PASS
+
+Automations .............. PASS
+
+Payments ................. PASS
+
+RBAC ..................... PASS
+
+Tenant Isolation ......... PASS
+
+Security ................. PASS
+
+E2E ...................... PASS
+
+======================================
+
+SYSTEM READY
+
+http://localhost:3000
+
+http://localhost:3000/dashboard
+
+http://localhost:3000/admin
+
+http://localhost:3000/dev-tools
+
+======================================
+
+---
+
+# 101. REGLA ABSOLUTA
+
+No quiero solamente propuestas o ejemplos.
+
+Cuando tengas acceso al repositorio:
+
+TRABAJA DIRECTAMENTE SOBRE ÉL.
+
+Primero inspecciona.
+
+Después documenta.
+
+Después corrige.
+
+Después implementa.
+
+Después prueba.
+
+Después vuelve a probar.
+
+---
+
+# 102. NO HACER
+
+No hacer:
+
+Deploy.
+
+Production payments.
+
+Real WhatsApp.
+
+Real emails.
+
+Real customer information.
+
+Breaking changes innecesarios.
+
+Rewrites completos innecesarios.
+
+Microservices prematuros.
+
+Features sin tests.
+
+Security by frontend only.
+
+Hardcoded tenant IDs.
+
+Hardcoded plans.
+
+Hardcoded pricing.
+
+Hardcoded secrets.
+
+---
+
+# 103. FORMA DE INFORMAR DEL PROGRESO
+
+Después de cada bloque importante entregar:
+
+## Implementado
+
+Qué se construyó.
+
+## Archivos
+
+Qué archivos se modificaron.
+
+## Tests ejecutados
+
+Comandos reales.
+
+## Resultado
+
+PASS / FAIL.
+
+## Seguridad
+
+Qué se verificó.
+
+## Pendiente
+
+Siguiente bloque.
+
+## Riesgos
+
+Problemas detectados.
+
+---
+
+# 104. SI ENCUENTRAS UN PROBLEMA
+
+No ocultarlo.
+
+Explicar:
+
+Problema.
+
+Severidad.
+
+Impacto.
+
+Causa.
+
+Solución.
+
+Archivos afectados.
+
+Tests necesarios.
+
+---
+
+# 105. PRIORIDAD DE PRODUCTO
+
+Mantener siempre esta jerarquía:
+
+1. Seguridad.
+2. Integridad de datos.
+3. Multi-tenancy.
+4. Arquitectura.
+5. Funcionalidad.
+6. Tests.
+7. UX.
+8. Rendimiento.
+9. Funciones nuevas.
+
+---
+
+# 106. VISIÓN FINAL
+
+Revenia debe convertirse en una plataforma donde una empresa pueda gestionar:
+
+Cliente
+
+↓
+
+Oportunidad
+
+↓
+
+Seguimiento
+
+↓
+
+Presupuesto
+
+↓
+
+Negociación
+
+↓
+
+Firma
+
+↓
+
+Factura
+
+↓
+
+Pago
+
+↓
+
+Cliente activo
+
+↓
+
+Renovación
+
+↓
+
+Upsell
+
+---
+
+Mientras Revenia analiza constantemente:
+
+¿Qué oportunidad está en riesgo?
+
+¿Qué cliente debe recibir seguimiento?
+
+¿Qué presupuesto podría recuperarse?
+
+¿Qué factura está pendiente?
+
+¿Qué acción debe realizar el comercial?
+
+¿Qué automatización puede ejecutarse?
+
+¿Qué amenaza de seguridad existe?
+
+¿Cuánto dinero está generando el sistema?
+
+---
+
+# 107. OBJETIVO FINAL DEL PRODUCTO
+
+Cuando una empresa abra Revenia debe poder responder en menos de 10 segundos:
+
+### ¿Cuánto he vendido?
+
+### ¿Cuánto dinero he recuperado?
+
+### ¿Cuánto dinero está actualmente en riesgo?
+
+### ¿Qué clientes debo contactar?
+
+### ¿Qué está haciendo Revenia automáticamente?
+
+### ¿Qué facturas están pendientes?
+
+### ¿Está segura mi empresa?
+
+---
+
+# 108. INSTRUCCIÓN FINAL
+
+Este proyecto está pensado para desarrollarse durante meses.
+
+No intentes terminarlo artificialmente en una única sesión.
+
+Trabaja de forma incremental.
+
+Mantén arquitectura limpia.
+
+Mantén tests.
+
+Mantén documentación.
+
+Mantén compatibilidad.
+
+No sacrifiques calidad para aparentar progreso.
+
+El objetivo no es tener muchas líneas de código.
+
+El objetivo es terminar con:
+
+## UN SaaS EMPRESARIAL REAL, SEGURO, ESCALABLE, TESTEADO Y COMERCIALIZABLE.
+
+Y antes de publicar absolutamente nada:
+
+## TODO REVENIA DEBE FUNCIONAR COMPLETAMENTE EN LOCAL.
