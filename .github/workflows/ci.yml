@@ -25,7 +25,34 @@ jobs:
           cache: npm
       - run: npm ci
       - name: Local synthetic configuration
-        run: cp .env.example .env.local
+        run: |
+          cat > .env.local <<'EOF'
+          SESSION_SECRET=ci-only-secret-with-more-than-sixty-four-characters-for-tests-000000000000
+          FIELD_ENCRYPTION_KEK=cd2faefcf93779453bc60b54cb2fec09382ffedc37acb17e0c5997ee198c36ef
+          DEV_OWNER_EMAIL=owner@example.test
+          DEV_OWNER_PASSWORD=CI-only-password-2026-not-production
+          DATABASE_URL=postgresql://revenia_app:revenia-local-app-2026@127.0.0.1:54329/revenia
+          MIGRATION_DATABASE_URL=postgresql://revenia_admin:revenia-local-admin-2026@127.0.0.1:54329/revenia
+          REDIS_URL=redis://:revenia-local-redis-2026@127.0.0.1:6380
+          APP_DB_PASSWORD=revenia-local-app-2026
+          POSTGRES_PASSWORD=revenia-local-admin-2026
+          REDIS_PASSWORD=revenia-local-redis-2026
+          EXTERNAL_OPERATIONS_ENABLED=false
+          WORKER_TENANT_IDS=11111111-1111-4111-8111-111111111111
+          ENGINE_DAILY_LIMIT=100
+          APP_URL=http://localhost:3000
+          CRON_SECRET=ci-only-cron-secret
+          PLATFORM_BILLING_ENABLED=false
+          PLATFORM_BILLING_MODE=test
+          PLATFORM_BILLING_ALLOW_LIVE=false
+          PLATFORM_STRIPE_SECRET_KEY=
+          PLATFORM_STRIPE_WEBHOOK_SECRET=
+          PLATFORM_STRIPE_PRICES=[]
+          BILLING_REQUIRED=false
+          RECOVERY_MAIL_PROVIDER=mailpit
+          RECOVERY_RESEND_API_KEY=
+          RECOVERY_FROM=
+          EOF
       - run: docker compose up -d --wait
       - run: npm run db:migrate
       - run: npm run db:seed
