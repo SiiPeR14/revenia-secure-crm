@@ -16,7 +16,7 @@ Antecedente: [avisos de factura](docs/INVOICE_NOTICE_HANDOFF.md). Para esta revi
 
 Nuevo: [operación simplificada y rediseño de facturas](docs/OPERATIONS_HANDOFF.md). `REVENIA.ps1 Estado`, `Verificar` y `Preparar` facilitan las comprobaciones y la copia local para publicación futura, sin desplegar nada.
 
-Web comercial: http://localhost:3000/ · Demo de planes: http://localhost:3000/#demo · CRM: http://localhost:3000/dashboard. La presentación y la calculadora son ilustrativas, sin contratación activa. Consulta [estado de la web](docs/WEBSITE_HANDOFF.md).
+Web comercial: [demo pública en Vercel](https://revenia-secure-crm.vercel.app/) · Demo de planes: `/#demo` · CRM: `/dashboard`. La presentación y la calculadora son ilustrativas, sin contratación activa. El despliegue público muestra la web comercial; el CRM requiere configurar PostgreSQL/Redis y secretos de producción antes de activar cuentas reales. Consulta [estado de la web](docs/WEBSITE_HANDOFF.md).
 
 Ejecutar `INICIAR_REVENIA.cmd` para preparar servicios, migraciones, datos locales sin sobrescribir registros existentes y worker. Aplicación en http://localhost:3000 y Mailpit en http://localhost:8025. Los mensajes comerciales utilizan Resend al activarse; la recuperación de acceso admite Mailpit local mediante npm run recovery:mail:local.
 
