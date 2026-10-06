@@ -14,7 +14,7 @@ export function LoginForm({demo}:{demo?:{email:string;password:string;plan?:stri
     setPending(true); setError("");
     try {
     if (demo) {
-      router.replace(demo.plan ? `/?demoPlan=${encodeURIComponent(demo.plan)}#demo` : "/#demo");
+      router.replace(demo.plan ? `/demo?plan=${encodeURIComponent(demo.plan)}` : "/demo");
       return;
     }
     const response = await fetch("/api/auth/login", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ email: formData.get("email"), password: formData.get("password") }) });
